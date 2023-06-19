@@ -3,8 +3,8 @@ import logo from '../public/logo-abol.png'
 
 function Navbar() {
     return (
-        <div>
-            <Image src={logo} alt={'abolfazlmarzban'}></Image>
+        <div className="h-28">
+            <Image src={logo} alt={'abolfazlmarzban'} className="h-4/5 w-auto"></Image>
         </div>
     );
 }

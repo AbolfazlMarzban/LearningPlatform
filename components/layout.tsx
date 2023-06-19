@@ -9,7 +9,7 @@ function Layout({children} : any) {
         <main
         className={`flex min-h-screen flex-col items-center justify-between ${inter.className}`}
       >
-        <Navbar ></Navbar>
+        <Navbar></Navbar>
         {children}
       </main>
     );
