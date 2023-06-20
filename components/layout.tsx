@@ -1,13 +1,13 @@
-import { Inter } from 'next/font/google'
+import { Noto_Sans_Mono } from 'next/font/google'
 import Navbar from './navbar'
 
 
-const inter = Inter({ subsets: ['latin'] })
+const noto = Noto_Sans_Mono({ subsets: ['latin']})
 
 function Layout({children} : any) {
     return (
         <main
-        className={`flex min-h-screen flex-col items-center ${inter.className}`}
+        className={`flex min-h-screen flex-col items-center ${noto.className}`}
       >
         <Navbar></Navbar>
         {children}
