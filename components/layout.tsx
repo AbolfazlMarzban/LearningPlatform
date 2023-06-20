@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'] })
 function Layout({children} : any) {
     return (
         <main
-        className={`flex min-h-screen flex-col items-center justify-between ${inter.className}`}
+        className={`flex min-h-screen flex-col items-center ${inter.className}`}
       >
         <Navbar></Navbar>
         {children}
