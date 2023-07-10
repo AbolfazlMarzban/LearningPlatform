@@ -5,30 +5,32 @@ import Link from 'next/link';
 
 const noto = Noto_Sans_Mono({ subsets: ['latin']})
 
-function adminLayout({children}:any) {
+function AdminLayout({children}:any) {
     return (
         <main
         className={`flex min-h-screen flex-col justify-between items-center bg-white ${noto.className}`}
       >
       <Navbar></Navbar>
-        <div className='w-screen h-screen flex flex-row'>
-            <aside className='bg-sky-900 p-4 text-white'> 
-                <nav className='flex flex-col px-4'>
-                <Link href={'/admin/projects'} className='pa-4 hover:bg-white hover:text-sky-900'>
+        <div className='w-full h-screen flex flex-row'>
+            <aside className='bg-sky-900 text-white'> 
+                <nav className='flex flex-col'>
+                <Link href={'/admin/projects'} className='p-4 hover:bg-white hover:text-sky-900'>
                     Projects
                 </Link>
-                <Link href={'/admin/books'}>
+                <Link href={'/admin/books'} className='p-4 hover:bg-white hover:text-sky-900'>
                     Books
                 </Link>
-                <Link href={'/admin/courses'}>
+                <Link href={'/admin/courses'} className='p-4 hover:bg-white hover:text-sky-900'>
                     Courses
                 </Link>
                 </nav>
-             
             </aside>
+            <div className='w-full p-4 border-solid border-4 border-sky-900'>
+                {children}
+            </div>
         </div>
         </main>
     );
 }
 
-export default adminLayout;
+export default AdminLayout;
