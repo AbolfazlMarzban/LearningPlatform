@@ -1,7 +1,14 @@
 import AdminLayout from "@/components/adminLayout";
 import React from "react";
 
-function ProjectForm(props: any) {
+function ProjectForm({
+  _id,
+  name,
+  link,
+  description,
+  image,
+} : any
+) {
   return (
     <AdminLayout>
       <div className="flex flex-col w-1/2">

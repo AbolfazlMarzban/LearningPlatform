@@ -7,7 +7,7 @@ function newProject() {
   const [image, setImage] = useState('')
   return (
       <ProjectForm>
-
+        
       </ProjectForm>
   );
 }
