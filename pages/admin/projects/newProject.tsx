@@ -1,3 +1,4 @@
+import AdminLayout from '@/components/adminLayout';
 import ProjectForm from '@/components/projectForm';
 import { useState } from 'react';
 function newProject() {
@@ -6,9 +7,10 @@ function newProject() {
   const [description, setDescription] = useState('')
   const [image, setImage] = useState('')
   return (
-      <ProjectForm>
+    <AdminLayout>
+            <ProjectForm />
+    </AdminLayout>
         
-      </ProjectForm>
   );
 }
 
