@@ -1,14 +1,20 @@
 import AdminLayout from "@/components/adminLayout";
-import React from "react";
+import { useRouter } from "next/router";
+import React, { useState } from "react";
 
 function ProjectForm({
   _id,
-  name,
-  link,
-  description,
-  image,
+  name: existingName,
+  link: existinglink,
+  description: existingDescription,
+  image: exisitingImage,
 } : any
 ) {
+const router = useRouter()
+const [name, setName] = useState( existingName || '')
+const [link, setlink] = useState( existinglink || '')
+const [description, setDescription] = useState(existingDescription || '')
+const [image, setImage] = useState(exisitingImage || '')
   return (
     <AdminLayout>
       <div className="flex flex-col w-1/2">
