@@ -15,21 +15,30 @@ const router = useRouter()
 const [name, setName] = useState( existingName || '')
 const [link, setlink] = useState( existinglink || '')
 const [description, setDescription] = useState(existingDescription || '')
-const [image, setImage] = useState(exisitingImage || '')
-const getImage = (event: any) => {
-  setImage(event.target.files[0])
-}
+const [image, setImage] = useState(exisitingImage || [])
+const [url,setUrl] = useState('')
+
+
 async function submit(){
   const fileBody = new FormData()
-  fileBody.append('image', image) 
-  const data = {name, link, description, fileBody}
+  fileBody.append('image', image[0]) 
+  const b = URL.createObjectURL(image[0])
+  setUrl(b)
+  console.log('url', url)
   try{
+    const path = await fetch('/api/upload', {
+      method: 'POST',
+      body: fileBody,
+      headers: {'Content-Type': 'multipart/form-data'}
+    });
+    console.log('path', path)
+    const data = {name, link, description}
     let result;
-    if(_id){
-       result = await axios.put("/api/projects", {...data, _id})
-    } else {
-       result = await axios.post("/api/projects", {...data})
-    }
+    // if(_id){
+    //    result = await axios.put("/api/projects", {...data, _id})
+    // } else {
+    //    result = await axios.post("/api/projects", {...data})
+    // }
     if(result){
       console.log('proeject result', result)
     }
@@ -66,9 +75,14 @@ async function submit(){
                 SVG, PNG, JPG or GIF (MAX. 800x400px)
               </p>
             </div>
-            <input id="dropzone-file" type="file" className="hidden" onChange={getImage}/>
+            <input id="dropzone-file" type="file" className="hidden" onChange={(ev) => setImage(ev.target.files)}/>
           </label>
         </div>
+        {image.length ? 
+          (<img src={url} />)  : ( 
+            <span>select Image</span>
+          )
+      }
         <div className="flex flex-col items-center justify-center w-full p-4 gap-2">
           <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
             Project name
