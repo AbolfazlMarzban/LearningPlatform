@@ -26,11 +26,12 @@ function ProjectForm({
   async function submit() {
     const fileBody = new FormData();
     fileBody.append("image", image[0]);
+    console.log('image', image)
     try {
       const path = await fetch("/api/upload", {
         method: "POST",
         body: fileBody,
-        headers: { "Content-Type": "multipart/form-data" },
+        // headers: { "Content-Type": "multipart/form-data" },
       });
       console.log("path", path);
       const data = { name, link, description, path };
