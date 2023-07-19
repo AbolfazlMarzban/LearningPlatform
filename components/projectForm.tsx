@@ -26,23 +26,21 @@ function ProjectForm({
   async function submit() {
     const fileBody = new FormData();
     fileBody.append("image", image[0]);
-    console.log('image', image)
+    // console.log('image', image)
     try {
-      const path = await fetch("/api/upload", {
-        method: "POST",
-        body: fileBody,
-        // headers: { "Content-Type": "multipart/form-data" },
-      });
-      console.log("path", path);
-      const data = { name, link, description, path };
+      const path = await axios.post("/api/upload",fileBody);
+      // console.log("path", path.data);
+      const address = path.data
+      const data = { name, link, description, address };
       let result;
-      // if(_id){
-      //    result = await axios.put("/api/projects", {...data, _id})
-      // } else {
-      //    result = await axios.post("/api/projects", {...data})
-      // }
+      if(_id){
+         result = await axios.put("/api/projects", {...data, _id})
+      } else {
+         result = await axios.post("/api/projects", {...data})
+      }
       if (result) {
         console.log("proeject result", result);
+        router.push('/admin/projects')
       }
     } catch (error) {
       console.log(error);
