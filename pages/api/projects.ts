@@ -12,4 +12,11 @@ export default async function handler(req: any, res:any){
         })
         res.json(projectDoc)
     }
+    if(method === "GET"){
+        if(req.query?.id){
+            res.json(await Project.findOne({_id:req.query.id}))
+        } else {
+            res.json(await Project.find())
+        }
+    }
 }

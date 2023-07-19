@@ -1,8 +1,16 @@
 import React from "react";
 import AdminLayout from "@/components/adminLayout";
 import Router from "next/router";
-
+import { useState, useEffect } from "react";
+import axios from "axios";
 function index() {
+const [projects, setProjects] = useState([])
+ useEffect(()  => {
+   axios.get("/api/projects").then((response) => 
+    setProjects(response.data)
+   )
+
+})
   return (
     <AdminLayout>
       <div>
