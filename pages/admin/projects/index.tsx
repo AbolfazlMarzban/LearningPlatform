@@ -8,6 +8,7 @@ const [projects, setProjects] = useState([])
  useEffect(()  => {
    axios.get("/api/projects").then((response) => {
     setProjects(response.data)
+    // console.log('projects', projects)
    }
    )
 
