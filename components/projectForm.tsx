@@ -7,14 +7,14 @@ function ProjectForm({
   name: existingName,
   link: existinglink,
   description: existingDescription,
-  image: exisitingImage,
+  address: existingAddress,
 }: any) {
   const router = useRouter();
   const [name, setName] = useState(existingName || "");
   const [link, setlink] = useState(existinglink || "");
   const [description, setDescription] = useState(existingDescription || "");
-  const [image, setImage] = useState(exisitingImage || []);
-  const [url, setUrl] = useState("");
+  const [image, setImage] = useState([]);
+  const [url, setUrl] = useState(existingAddress || "");
 
   function getImage(ev: any) {
     const f = ev.target.files;
@@ -50,7 +50,7 @@ function ProjectForm({
     <div className="flex flex-col w-1/2">
       <div className="flex items-center justify-center w-full">
         <label className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
-          {image.length > 0 ? (
+          {url.length > 0 ? (
             <img src={url} style={{ height: "inherit" }} />
           ) : (
             <div className="flex flex-col items-center justify-center pt-5 pb-6">
