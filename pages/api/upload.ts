@@ -13,8 +13,9 @@ export default async function handle(req: any, res:any){
                       fs.rename(files.image[0].path, newPath, (err)=>{
                 throw err;
             })
-            const dest = path.join('public', 'uploads', files.image[0].originalFilename)
-            res.json(dest)
+            // const dest = path.join('public', 'uploads', files.image[0].originalFilename)
+            var link = '/'+ 'uploads'+ '/'+ files.image[0].originalFilename
+            res.json(link)
         }
     })
 }

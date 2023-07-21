@@ -3,16 +3,14 @@ import AdminLayout from "@/components/adminLayout";
 import Router from "next/router";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import setImageUrl from "@/mixins/setImageUrl";
+import Image from "next/image";
 function index() {
 const [projects, setProjects] = useState([])
  useEffect(()  => {
    axios.get("/api/projects").then((response) => {
     setProjects(response.data)
-    // console.log('projects', projects)
-   }
-   )
-
-})
+     })}, [])
   return (
     <AdminLayout>
       <div>
@@ -37,16 +35,19 @@ const [projects, setProjects] = useState([])
             </tr>
           </thead>
           <tbody>
-            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-              >
-                Apple MacBook Pro 17"
-              </th>
-              <td className="px-6 py-4">Silver</td>
-              <td className="px-6 py-4">$2999</td>
-            </tr>
+            {projects.map((project:any)=>(
+   <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700" key={project._id}>
+   <th
+     scope="row"
+     className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+   >
+              <Image src={project.address} alt="" width={100} height={100}/>
+   </th>
+   <td className="px-6 py-4">{project.name}</td>
+   <td className="px-6 py-4">{project.link}</td>
+ </tr>
+            ))}
+         
           </tbody>
         </table>
       </div>
