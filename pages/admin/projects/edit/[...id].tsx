@@ -5,22 +5,26 @@ import { useRouter } from 'next/router';
 import axios from 'axios';
 function editProject() {
   const router = useRouter()
-  const [projectInfo, setProjectInfo] = useState({})
-  var {id} = router.query
+  const [projectInfo, setProjectInfo] :any = useState({})
+  var id = router.query.id
   useEffect(() =>{
-    if(!id){
-        return;
-    }
-    axios.get("/api/projects?id="+id).then(response => {
+    console.log('id', id)
+    if(id){
+       axios.get("/api/projects?id="+id[0]).then(response => {
         if(response.data){
             setProjectInfo(response.data)
         }
-        console.log('projectInfo', projectInfo)
     })
-  }, [id])
+    }
+   
+  }, [id?.length])
   return (
     <AdminLayout>
-            <ProjectForm {...projectInfo} />
+      {projectInfo && (
+          <ProjectForm 
+          {...projectInfo}
+        />      
+      )}
     </AdminLayout>
         
   );

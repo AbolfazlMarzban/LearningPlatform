@@ -15,7 +15,8 @@ export default async function handler(req: any, res:any){
     }
     if(method === "GET"){
         if(req.query?.id){
-            res.json(await Project.findOne({_id:req.query.id}))
+            const result = await Project.findOne({_id:req.query.id})
+            res.json(result)
         } else {
             res.json(await Project.find())
         }

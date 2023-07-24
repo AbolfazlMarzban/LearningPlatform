@@ -1,20 +1,21 @@
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import axios from "axios";
+import { useEffect } from "react";
 
 function ProjectForm({
   _id,
-  name: existingName,
+  name :existingName,
   link: existinglink,
   description: existingDescription,
   address: existingAddress,
 }: any) {
   const router = useRouter();
-  const [name, setName] = useState(existingName || "");
-  const [link, setlink] = useState(existinglink || "");
-  const [description, setDescription] = useState(existingDescription || "");
+  const [name, setName] = useState("");
+  const [link, setlink] = useState("");
+  const [description, setDescription] = useState("");
   const [image, setImage] = useState([]);
-  const [url, setUrl] = useState(existingAddress || "");
+  const [url, setUrl] = useState("");
 
   function getImage(ev: any) {
     const f = ev.target.files;
@@ -46,11 +47,17 @@ function ProjectForm({
       console.log(error);
     }
   }
+  useEffect(()=>{
+    setName(existingName)
+    setUrl(existingAddress)
+    setDescription(existingDescription)
+    setlink(existinglink)
+  }, [_id])
   return (
     <div className="flex flex-col w-1/2">
       <div className="flex items-center justify-center w-full">
         <label className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
-          {url.length > 0 ? (
+          {url?.length > 0 ? (
             <img src={url} style={{ height: "inherit" }} />
           ) : (
             <div className="flex flex-col items-center justify-center pt-5 pb-6">
@@ -87,7 +94,6 @@ function ProjectForm({
           />
         </label>
       </div>
-
       <div className="flex flex-col items-center justify-center w-full p-4 gap-2">
         <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
           Project name
