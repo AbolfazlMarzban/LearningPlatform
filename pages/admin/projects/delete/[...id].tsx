@@ -27,17 +27,21 @@ function editProject() {
   }
 
   async function deleteProject(){
-    await axios.delete('api/projects?id='+id)
+    const result = await axios.delete(`api/projects?id=${projectInfo._id}`)
+    if(result){
+      console.log(result)
+      goBack()
+    }
   }
 
   if(projectInfo){
   return (
     <AdminLayout>
         <Modal isOpen={isOpen}>
-            <h1>do you really want to delete {projectInfo.name} ?</h1>
-            <div className="flex gap-2 justify-center">
-                     <button className="btn-red" onClick={deleteProject}>Yes</button>
-                     <button className="btn-default" onClick={goBack}>No</button>
+            <h1 className='text-center'>do you really want to delete {projectInfo.name} ?</h1>
+            <div className="flex gap-5 justify-center py-3">
+                     <button className="bg-red-500 px-3 text-white rounded" onClick={deleteProject}>Yes</button>
+                     <button className="bg-green-500 px-3 text-white rounded" onClick={goBack}>No</button>
                      </div>
         </Modal>
     </AdminLayout>

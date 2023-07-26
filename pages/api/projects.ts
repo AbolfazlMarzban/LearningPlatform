@@ -17,11 +17,20 @@ export default async function handler(req: any, res: any) {
   }
   if (method == "PUT") {
     if (req.query?.id) {
+      let result;
+      if(req.body.address){
       const { name, link, description, address } = req.body;
-      const result =  await Project.updateOne(
+       result =  await Project.updateOne(
         { _id: req.query.id },
         { name: name, link: link, description: description, address: address }
       );
+      } else {
+        const { name, link, description, url } = req.body;
+        result =  await Project.updateOne(
+          { _id: req.query.id },
+          { name: name, link: link, description: description, address: url }
+        );
+      }
       res.json(result);
     }
   }
@@ -31,6 +40,12 @@ export default async function handler(req: any, res: any) {
       res.json(result);
     } else {
       res.json(await Project.find());
+    }
+  }
+  if(method == "delete"){
+    if(req.query?.id){
+      const result = await Project.deleteOne({ _id: req.query.id })
+      res.json(true)
     }
   }
 }

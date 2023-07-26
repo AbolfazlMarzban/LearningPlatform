@@ -25,3 +25,14 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.ReactModal__Overlay{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ReactModal__Content{
+  width: 500px;
+  height: auto;
+  position: unset !important;
+}

@@ -25,14 +25,18 @@ function ProjectForm({
     setUrl(txt);
   }
   async function submit() {
-    const fileBody = new FormData();
-    fileBody.append("image", image[0]);
-    // console.log('image', image)
     try {
+      let data = {}
+      let address;
+      if(image.length){
+        const fileBody = new FormData();
+      fileBody.append("image", image[0]);
       const path = await axios.post("/api/upload",fileBody);
-      // console.log("path", path.data);
-      const address = path.data
-      const data = { name, link, description, address };
+       address = path.data
+       data = { name, link, description, address };
+      } else {
+        data = {name, link, description, url}
+      }
       let result;
       if(_id){
          result = await axios.put(`/api/projects?id=${_id}`, {...data})
