@@ -35,7 +35,7 @@ function ProjectForm({
       const data = { name, link, description, address };
       let result;
       if(_id){
-         result = await axios.put("/api/projects", {...data, _id})
+         result = await axios.put(`/api/projects?id=${_id}`, {...data})
       } else {
          result = await axios.post("/api/projects", {...data})
       }

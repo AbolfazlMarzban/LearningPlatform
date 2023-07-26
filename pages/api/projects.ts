@@ -18,11 +18,11 @@ export default async function handler(req: any, res: any) {
   if (method == "PUT") {
     if (req.query?.id) {
       const { name, link, description, address } = req.body;
-      await Project.updateOne(
+      const result =  await Project.updateOne(
         { _id: req.query.id },
         { name: name, link: link, description: description, address: address }
       );
-      res.json(true);
+      res.json(result);
     }
   }
   if (method === "GET") {
