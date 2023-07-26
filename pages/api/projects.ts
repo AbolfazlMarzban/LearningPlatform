@@ -42,7 +42,7 @@ export default async function handler(req: any, res: any) {
       res.json(await Project.find());
     }
   }
-  if(method == "delete"){
+  if(method == "DELETE"){
     if(req.query?.id){
       const result = await Project.deleteOne({ _id: req.query.id })
       res.json(true)

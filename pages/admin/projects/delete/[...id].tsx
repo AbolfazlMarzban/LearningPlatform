@@ -27,9 +27,8 @@ function editProject() {
   }
 
   async function deleteProject(){
-    const result = await axios.delete(`api/projects?id=${projectInfo._id}`)
+    const result = await axios.delete(`/api/projects?id=${projectInfo._id}`)
     if(result){
-      console.log(result)
       goBack()
     }
   }
