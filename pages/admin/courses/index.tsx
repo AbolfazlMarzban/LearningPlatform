@@ -6,20 +6,20 @@ import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 function index() {
-  const [books, setBooks] = useState([]);
+  const [courses, setCourses] = useState([]);
   useEffect(() => {
-    axios.get("/api/books").then((response) => {
-      setBooks(response.data);
+    axios.get("/api/courses").then((response) => {
+      setCourses(response.data);
     });
-  }, [books.length]);
+  }, [courses.length]);
   return (
     <AdminLayout>
       <div>
         <button
           className="rounded bg-sky-900 text-white p-2"
-          onClick={() => Router.push("/admin/books/newBook")}
+          onClick={() => Router.push("/admin/courses/newCourse")}
         >
-          New Book
+          New Course
         </button>
       </div>
 
@@ -28,41 +28,46 @@ function index() {
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" className="px-6 py-3">
-                Book Pic
+                Course Pic
               </th>
               <th scope="col" className="px-6 py-3">
                 Name
               </th>
               <th scope="col" className="px-6 py-3">
+                Link
+              </th>
+              <th scope="col" className="px-6 py-3">
                 Price
               </th>
+           
               <th scope="col" className="px-6 py-3">
                 Actions
               </th>
             </tr>
           </thead>
           <tbody>
-            {books.map((book: any) => (
+            {courses.map((course: any) => (
               <tr
                 className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
-                key={book._id}
+                key={course._id}
               >
                 <th
                   scope="row"
                   className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                 >
                   <Image
-                    src={book.address}
+                    src={course.address}
                     alt=""
                     width={100}
                     height={100}
                   />
                 </th>
-                <td className="px-6 py-4">{book.name}</td>
-                <td className="px-6 py-4">{book.price}</td>
+                <td className="px-6 py-4">{course.name}</td>
+                <td className="px-6 py-4">{course.link}</td>
+                <td className="px-6 py-4">{course.price}</td>
                 <td className="px-6 py-4">
                   <div className="flex gap-4">
-                    <Link href={"/admin/books/edit/" + book._id}>
+                    <Link href={"/admin/courses/edit/" + course._id}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -79,7 +84,7 @@ function index() {
                     </svg>
                     </Link>
                  
-                    <Link href={"/admin/books/delete/" +book._id}>
+                    <Link href={"/admin/courses/delete/" + course._id}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
