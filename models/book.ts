@@ -1,6 +1,6 @@
 const { Schema, model, models } = require("mongoose");
 
-const ProjectSchema = new Schema({
+const BookSchema = new Schema({
     name:  {type: String, required: true },
     // link: {type: String, required: true },
     description: { type: String, required: true },
@@ -8,4 +8,4 @@ const ProjectSchema = new Schema({
     price: { type: Number, required: true}
 })
 
-export const Project = models.Project || model('Project', ProjectSchema)
+export const Book = models.Book || model('Book', BookSchema)
