@@ -4,7 +4,7 @@ import Footer from './footer';
 import { useEffect, useRef, useState } from 'react';
 import * as THREE from "three"
 // @ts-ignore
-import NET from "vanta/dist/vanta.net.min"
+import NET from "vanta/dist/vanta.halo.min"
 
 const noto = Noto_Sans_Mono({ subsets: ['latin']})
 
@@ -20,7 +20,19 @@ if(!vantaEffect){
       THREE,
       color: 0x0,
       backgroundColor: 0xc5c5c5,
-      showDots: false
+      // showDots: true,
+      // maxDistance: 24.00,
+      // spacing: 20.00,
+      // points: 4.00
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      xOffset: 0.00,
+      yOffset: 0.00,
+      size: 2.50,
+      amplitudeFactor: 2.00
     })
   )
 }
@@ -34,7 +46,9 @@ return ()=>{
         ref={vantaRef}
       >
         <Navbar></Navbar>
+        <div style={{ zIndex: '10'}}>
         {children}
+        </div>
         <Footer></Footer>
       </main>
     );
