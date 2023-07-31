@@ -14,19 +14,21 @@ useEffect(()=>{
     return (
     <Layout>
         {projects.map((project: any)=> 
-             (<div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <a href="#">
+             (<div className="max-w-sm bg-white border border-gray-200 rounded-xl shadow dark:bg-gray-800 dark:border-gray-700">
+            <a href={project.link}>
              <Image
                     src={project.address}
                     alt=""
-                    width={100}
-                    height={100}
+                    width={0}
+                    height={0}
+                    sizes="100vw"
+                    style={{width: '100%', height: 'auto'}}
+                    className='rounded-xl'
                   />
-            </a>
+         
             <div className="p-5">
-                <a href="#">
+               
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{project.name}</h5>
-                </a>
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{project.description}</p>
                 {/* <a href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     Read more
@@ -35,6 +37,7 @@ useEffect(()=>{
                     </svg>
                 </a> */}
             </div>
+            </a>
         </div>)
         )}
     </Layout>
