@@ -16,9 +16,6 @@ export default function Book(){
             })
         }
     }, [name?.length])
-    useEffect(()=>{
-        axios.get('/projects/')
-    }, [bookInfo])
     return(
         <Layout>
             {bookInfo && (

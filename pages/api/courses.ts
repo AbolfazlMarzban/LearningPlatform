@@ -39,7 +39,11 @@ export default async function handler(req: any, res: any) {
         if (req.query?.id) {
           const result = await Course.findOne({ _id: req.query.id });
           res.json(result);
-        } else {
+        } else if(req.query?.name) {
+          const result = await Course.findOne({name: req.query.name})
+          res.json(result)
+        }
+        else {
           res.json(await Course.find());
         }
       }
