@@ -18,29 +18,11 @@ if(!vantaEffect){
     CLOUDS({
       el: vantaRef.current,
       THREE,
-      // mouseControls: true,
-      // touchControls: true,
-      // gyroControls: false,
-      // minHeight: 200.00,
-      // minWidth: 200.00,
-      // scale: 1.00,
-      // scaleMobile: 1.00,
-      // color: 0x464646
-      // color: 0x0,
-      // backgroundColor: 0xc5c5c5,
-      // showDots: true,
-      // maxDistance: 24.00,
-      // spacing: 20.00,
-      // points: 4.00
-      // mouseControls: true,
-      // touchControls: true,
-      // gyroControls: false,
-      // minHeight: 200.00,
-      // minWidth: 200.00,
-      // xOffset: 0.00,
-      // yOffset: 0.00,
-      // size: 2.50,
-      // amplitudeFactor: 2.00
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 200.00,
+      minWidth: 200.00
     })
   )
 }
