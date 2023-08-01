@@ -33,12 +33,17 @@ export default async function handler(req: any, res: any) {
       }
       res.json(result);
     }
+
   }
   if (method === "GET") {
     if (req.query?.id) {
       const result = await Project.findOne({ _id: req.query.id });
       res.json(result);
-    } else {
+    }
+    //  else if(req.query?.name){
+    //   const result = await Projec
+    // } 
+    else {
       res.json(await Project.find());
     }
   }

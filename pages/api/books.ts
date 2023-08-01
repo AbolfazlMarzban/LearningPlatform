@@ -38,6 +38,9 @@ export default async function handler(req: any, res: any) {
         if (req.query?.id) {
           const result = await Book.findOne({ _id: req.query.id });
           res.json(result);
+        } else if(req.query?.name){
+          const result = await Book.findOne({name: req.query.name})
+          res.json(result)
         } else {
           res.json(await Book.find());
         }
