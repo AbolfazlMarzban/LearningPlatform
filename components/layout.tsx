@@ -36,7 +36,7 @@ return ()=>{
         ref={vantaRef}
       >
         <Navbar></Navbar>
-        <div style={{ zIndex: '10'}}>
+        <div style={{ zIndex: '10'}} className='py-5'>
         {children}
         </div>
         <Footer></Footer>

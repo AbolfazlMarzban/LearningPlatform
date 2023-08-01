@@ -20,7 +20,7 @@ export default function BookSlug({
   }, [_id]);
   return (
     <div className="flex flex-row justify-center">
-      <div className="bg-transparent flex flex-row p-4 rounded-xl w-9/12 shadow-xl">
+      <div className="bg-transparent flex flex-row p-4 rounded-xl w-9/12 shadow-xl items-center">
         <div className="basis-1/2 p-2">
           <h1 className="font-bold text-2xl">{name}</h1>
           <p>{description}</p>
@@ -56,7 +56,7 @@ export default function BookSlug({
             </button>
           </div>
           <div className="bg-gray-300 text-black my-2 text-center  p-3 rounded-xl border hover:bg-white">
-            <a href="#" className="w-full h-full">Read the demo</a>
+            <a href="#" className="block w-full h-full">Read the demo</a>
           </div>
         </div>
       </div>
