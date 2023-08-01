@@ -1,8 +1,8 @@
 import Layout from "@/components/layout";
-import BookSlug from "@/components/bookSlug";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import CookSlug from "@/components/courseSlug";
 
 export default function Course(){
     const router = useRouter()
@@ -19,7 +19,7 @@ export default function Course(){
     return(
         <Layout>
             {courseInfo && (
-            <BookSlug 
+            <CookSlug 
             {...courseInfo}/>
             )}
         </Layout>
