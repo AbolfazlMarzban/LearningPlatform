@@ -15,7 +15,7 @@ export default function Book(){
                 setBookInfo(response.data)
             })
         }
-    }, [bookInfo._id])
+    }, [name?.length])
     useEffect(()=>{
         axios.get('/projects/')
     }, [bookInfo])
