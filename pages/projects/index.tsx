@@ -14,7 +14,8 @@ useEffect(()=>{
     return (
     <Layout>
         {projects.map((project: any)=> 
-             (<div className="max-w-sm rounded-xl shadow-xl">
+             (
+             <div className="max-w-sm rounded-xl shadow-xl">
             <a href={project.link}>
              <Image
                     src={project.address}
