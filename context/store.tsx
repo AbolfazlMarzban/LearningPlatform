@@ -23,5 +23,11 @@ const GlobalContext = createContext<ContextProps>({
 export const GlobalContextProvider = ({children}: any) => {
     const [userId, setUserId] = useState('')
     const [data, setData] = useState<[] | DataType[]>([])
+    return(
+        <GlobalContext.Provider value={{userId, setUserId, data, setData }} >
+            {children}
+        </GlobalContext.Provider>
+    )
+}   
 
-}
+export const useGlobalContext = () => useContext(GlobalContext)
