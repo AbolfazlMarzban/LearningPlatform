@@ -1,5 +1,7 @@
+
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useGlobalContext } from "@/context/store";
 
 export default function BookSlug({
   _id,
@@ -12,6 +14,7 @@ export default function BookSlug({
   const [description, setDescription] = useState("");
   const [address, setAddress] = useState("");
   const [price, setPrice] = useState(0);
+  const {userId, setUserId, data, setData} = useGlobalContext()
   useEffect(() => {
     setName(existingName);
     setDescription(existingDescription);
