@@ -1,7 +1,6 @@
 import { Noto_Sans_Mono } from 'next/font/google'
 import Navbar from './navbar'
 import Footer from './footer';
-import Providers from './providers';
 import { useEffect, useRef, useState } from 'react';
 import * as THREE from "three"
 // @ts-ignore
@@ -40,7 +39,6 @@ return ()=>{
         <div style={{ zIndex: '10'}} className='py-5'>
         {children}
         </div>
-        <Providers></Providers>
         <Footer></Footer>
       </main>
     );
