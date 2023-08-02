@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-export default function CookSlug({
+export default function CourseSlug({
   _id,
   name: existingName,
   description: existingDescription,
