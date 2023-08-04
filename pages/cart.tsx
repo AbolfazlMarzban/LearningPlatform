@@ -10,7 +10,7 @@ export default function Cart(){
         <Layout>
             {cartItems.length <= 0 ? <h1 className="text-center">Your Cart is Empty!</h1>
             : cartItems.map((item :any)=>
-                <div className="flex flex-row my-3 items-center bg-transparent  rounded-xl shadow max-w-3xl">
+                <div className="flex flex-row my-3 items-center bg-transparent  rounded-xl shadow-2xl max-w-5xl">
                     <div className="basis-1/3">
                     <Image width={0} height={0}             sizes="100vw"
  className="object-cover rounded-l-lg  " src={item.existingAddress}
@@ -19,8 +19,8 @@ export default function Cart(){
  alt="" />
                     </div>
                     <div className="basis-1/3 flex flex-col justify-between p-4 leading-normal">
-                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.existingName}</h5>
-                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{item.existingPrice} $</p>
+                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-black dark:text-white">{item.existingName}</h5>
+                        <p className="mb-3 font-normal text-black dark:text-gray-400">{item.existingPrice} $</p>
                     </div>
                     <div className="basis-1/3"></div>
                 </div>

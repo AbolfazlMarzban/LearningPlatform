@@ -31,8 +31,8 @@ if(projects.length > 0){
          
             <div className="p-5">
                
-                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{project.name}</h5>
-                <p className="mb-3 font-normal text-black-700 dark:text-gray-400">{project.description}</p>
+                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-black dark:text-white">{project.name}</h5>
+                <p className="mb-3 font-normal text-black dark:text-gray-400">{project.description}</p>
             </div>
             </a>
         </div>)
