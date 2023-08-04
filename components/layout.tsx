@@ -4,7 +4,8 @@ import Footer from "./footer";
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 // @ts-ignore
-import CLOUDS from "vanta/dist/vanta.clouds.min";
+// import NET from "vanta/dist/vanta.net.min"
+import FOG from "vanta/dist/vanta.fog.min"
 
 const noto = Noto_Sans_Mono({ subsets: ["latin"] });
 
@@ -15,14 +16,29 @@ function Layout({ children }: any) {
   useEffect(() => {
     if (!vantaEffect) {
       setVantaEffect(
-        CLOUDS({
+        FOG({
           el: vantaRef.current,
           THREE,
           mouseControls: true,
           touchControls: true,
           gyroControls: false,
-          minHeight: 200.0,
-          minWidth: 200.0,
+          minHeight: 200.00,
+          minWidth: 200.00,
+          highlightColor: 0xeca9f2,
+          midtoneColor: 0x93d3ed,
+          lowlightColor: 0xfc8bb2,
+          baseColor: 0x313030
+          // backgroundColor: 0x0,
+          // color: 0xffffff,
+          // mouseControls: true,
+          // touchControls: true,
+          // gyroControls: false,
+          // minHeight: 200.00,
+          // minWidth: 200.00,
+          // scale: 1.00,
+          // scaleMobile: 1.00,
+          // points: 5.00,
+          // spacing: 18.00
         })
       );
     }
