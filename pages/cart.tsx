@@ -47,6 +47,12 @@ const removeFromCart = () =>{
           </div>
         ))
       )}
+         <button className="border rounded-xl p-2 w-full text-white flex flex-row justify-between hover:bg-white hover:text-black" onClick={removeFromCart}>
+            Checkout
+            <div>
+                Total: 3500$
+            </div>
+      </button>
     </Layout>
   );
 }
