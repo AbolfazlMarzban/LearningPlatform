@@ -3,7 +3,6 @@ import Navbar from "./navbar";
 import Footer from "./footer";
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
-import { GlobalContextProvider } from "@/context/store";
 // @ts-ignore
 import CLOUDS from "vanta/dist/vanta.clouds.min";
 
@@ -37,12 +36,9 @@ function Layout({ children }: any) {
       ref={vantaRef}
     >
       <Navbar></Navbar>
-      <GlobalContextProvider>
         <div style={{ zIndex: "10" }} className="py-5">
           {children}
         </div>
-      </GlobalContextProvider>
-
       <Footer></Footer>
     </main>
   );

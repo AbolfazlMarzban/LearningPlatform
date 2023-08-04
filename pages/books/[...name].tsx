@@ -1,3 +1,5 @@
+'use client';
+
 import Layout from "@/components/layout";
 import BookSlug from "@/components/bookSlug";
 import { useRouter } from "next/router";

@@ -1,7 +1,8 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { useGlobalContext } from "@/context/store";
+import { cartState } from "@/context/store";
+import { useRecoilState } from "recoil"
 
 export default function BookSlug({
   _id,
@@ -14,13 +15,20 @@ export default function BookSlug({
   const [description, setDescription] = useState("");
   const [address, setAddress] = useState("");
   const [price, setPrice] = useState(0);
-  const {userId, setUserId, data, setData} = useGlobalContext()
   useEffect(() => {
     setName(existingName);
     setDescription(existingDescription);
     setAddress(existingAddress);
     setPrice(existingPrice);
   }, [_id]);
+
+  const [cartItems, setCartItems] = useRecoilState(cartState)
+
+  const addToCart = ()=>{
+    if(cartItems.findIndex((item: any) => item._id == _id) == -1){
+      setCartItems((prevState) : any => [...prevState, {_id, existingName, existingDescription, existingAddress, existingPrice}])
+    } 
+  }
   if(_id){
     return (
       <div className="flex flex-row justify-center">
@@ -41,7 +49,7 @@ export default function BookSlug({
             />
             <div className="bg-gray-300 my-2 p-3 rounded-xl text-black flex flex-row justify-between items-center">
               <span className="font-bold">{price} $</span>
-              <button className="border rounded-xl p-2 flex flex-row hover:bg-white">
+              <button className="border rounded-xl p-2 flex flex-row hover:bg-white" onClick={addToCart}>
                 Add To Cart
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
