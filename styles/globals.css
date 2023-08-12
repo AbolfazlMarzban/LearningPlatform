@@ -24,7 +24,7 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb)); */
-    background: grey;
+    background: white;
     font-family: '__Noto_Sans_Mono_Fallback_4e3463', '__Noto_Sans_Mono_Fallback_Fallback_4e3463' !important;
     font-style: normal;}
 

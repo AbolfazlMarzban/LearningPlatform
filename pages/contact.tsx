@@ -4,7 +4,13 @@ import React from 'react';
 function contact() {
     return (
         <Layout>
-            <h1>Let's connect!</h1>
+            <div className='bg-white w-full h-full' >
+                <ul>
+                    <li>
+                        
+                    </li>
+                </ul>
+            </div>
         </Layout>
     );
 }
