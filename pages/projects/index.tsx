@@ -15,9 +15,9 @@ useEffect(()=>{
 if(projects.length > 0){
         return (
     <Layout>
-        {projects.map((project: any)=> 
+        {projects.map((project: any, i:any)=> 
              (
-             <div className="max-w-sm rounded-xl shadow-xl">
+             <div className="max-w-sm rounded-xl shadow-xl" key={i}>
             <a href={project.link}>
              <Image
                     src={project.address}
