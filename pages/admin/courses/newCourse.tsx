@@ -1,7 +1,7 @@
 import AdminLayout from '@/components/adminLayout';
 import CourseForm from '@/components/courseForm';
 
-function newProject() {
+function NewCourse() {
   return (
     <AdminLayout>
             <CourseForm />
@@ -10,4 +10,4 @@ function newProject() {
   );
 }
 
-export default newProject;
+export default NewCourse;

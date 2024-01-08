@@ -5,7 +5,7 @@ import axios from 'axios';
 import Modal from 'react-modal';
 
 
-function deleteBook() {
+function DeleteBook() {
   const router = useRouter()
   const [bookInfo, setBookInfo] :any = useState({})
   const [isOpen, setIsOpen] = useState(true)
@@ -49,4 +49,4 @@ function deleteBook() {
   }
 }
 
-export default deleteBook;
+export default DeleteBook;

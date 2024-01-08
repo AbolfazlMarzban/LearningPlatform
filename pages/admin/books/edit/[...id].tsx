@@ -6,7 +6,7 @@ import axios from 'axios';
 
 
 
-function editBook() {
+function EditBook() {
   const router = useRouter()
   const [bookInfo, setBookInfo] :any = useState({})
   var id = router.query.id
@@ -33,4 +33,4 @@ function editBook() {
   );
 }
 
-export default editBook;
+export default EditBook;

@@ -1,7 +1,7 @@
 import AdminLayout from '@/components/adminLayout';
 import ProjectForm from '@/components/projectForm';
 
-function newProject() {
+function NewProject() {
   return (
     <AdminLayout>
             <ProjectForm />
@@ -10,4 +10,4 @@ function newProject() {
   );
 }
 
-export default newProject;
+export default NewProject;

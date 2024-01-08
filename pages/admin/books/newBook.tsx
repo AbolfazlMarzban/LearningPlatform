@@ -1,7 +1,7 @@
 import AdminLayout from '@/components/adminLayout';
 import BookForm from '@/components/bookForm';
 
-function newProject() {
+function NewProject() {
   return (
     <AdminLayout>
             <BookForm />
@@ -10,4 +10,4 @@ function newProject() {
   );
 }
 
-export default newProject;
+export default NewProject;

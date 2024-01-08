@@ -3,7 +3,7 @@ import ProjectForm from '@/components/projectForm';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
-function editProject() {
+function EditProject() {
   const router = useRouter()
   const [projectInfo, setProjectInfo] :any = useState({})
   var id = router.query.id
@@ -30,4 +30,4 @@ function editProject() {
   );
 }
 
-export default editProject;
+export default EditProject;

@@ -5,7 +5,7 @@ import axios from 'axios';
 import Modal from 'react-modal';
 
 
-function editProject() {
+function DeleteProject() {
   const router = useRouter()
   const [projectInfo, setProjectInfo] :any = useState({})
   const [isOpen, setIsOpen] = useState(true)
@@ -49,4 +49,4 @@ function editProject() {
   }
 }
 
-export default editProject;
+export default DeleteProject;
