@@ -9,12 +9,17 @@ export default function Home() {
       <div className="w-full flex justify-center items-center">
         <div className="bg-gray-300 rounded-lg p-3 bg-opacity-50 flex gap-4 w-1/2 items-center">
           <div className="flex flex-col ">
-            <h1 className="font-bold text-lg">Hi! I'm Abolfazl Marzban.</h1>
-            <h2 className="text-lg font-semibold">A full stack freelance developer</h2>
+            <h1 className="font-bold text-lg">{`Hi! I'm Abolfazl Marzban.`}</h1>
+            <h2 className="text-lg font-semibold">{`A full stack freelance developer`}</h2>
             <p className="p-2">
-              Greetings! I'm Abolfazl, an experienced Freelance Full-Stack
-              Developer, and I'm on a mission to craft digital experiences that
-              go beyond expectations.
+              {
+                `
+                Greetings! I'm Abolfazl, an experienced Freelance Full-Stack
+                Developer, and I'm on a mission to craft digital experiences that
+                go beyond expectations.
+                `
+              }
+          
             </p>
             <div className="flex gap-3 mt-4">
                 <div className="bg-violet-500 text-white p-2 rounded-full px-3">
