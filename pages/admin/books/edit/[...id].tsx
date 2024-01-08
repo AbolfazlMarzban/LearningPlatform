@@ -20,7 +20,7 @@ function EditBook() {
     })
     }
    
-  }, [id?.length])
+  }, [])
   return (
     <AdminLayout>
       {bookInfo && (

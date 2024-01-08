@@ -1,7 +1,7 @@
 import Layout from '@/components/layout';
 import React from 'react';
 
-function login() {
+function Login() {
     return (
         <Layout>
             <h1>Login</h1>
@@ -9,4 +9,4 @@ function login() {
     );
 }
 
-export default login;
+export default Login;

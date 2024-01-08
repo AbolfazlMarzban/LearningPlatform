@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Image from 'next/image';
 
-function index() {
+function Index() {
 const [projects, setProjects] = useState([])
 useEffect(()=>{
     axios.get("/api/projects").then((response) => {
@@ -67,4 +67,4 @@ if(projects.length > 0){
 
 }
 
-export default index;
+export default Index;

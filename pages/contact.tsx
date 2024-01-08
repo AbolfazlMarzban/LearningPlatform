@@ -1,7 +1,7 @@
 import Layout from '@/components/layout';
 import React from 'react';
 
-function contact() {
+function Contact() {
     return (
         <Layout>
             <div className='bg-white w-full h-full' >
@@ -15,4 +15,4 @@ function contact() {
     );
 }
 
-export default contact;
+export default Contact;

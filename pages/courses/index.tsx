@@ -6,7 +6,7 @@ import axios from 'axios';
 import Image from 'next/image';
 import Link from 'next/link';
 
-function index() {
+function Index() {
 const [courses, setcourses] = useState([])
 useEffect(()=>{
     axios.get("/api/courses").then((response) => {
@@ -74,4 +74,4 @@ if(courses.length){
   
 }
 
-export default index;
+export default Index;

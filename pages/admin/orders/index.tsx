@@ -1,7 +1,7 @@
 import React from 'react';
 import AdminLayout from '@/components/adminLayout';
 
-function index() {
+function Index() {
     return (
         <AdminLayout>
             <div>
@@ -11,4 +11,4 @@ function index() {
     );
 }
 
-export default index;
+export default Index;

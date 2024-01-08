@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
-function index() {
+function Index() {
   const [books, setBooks] = useState([]);
   useEffect(() => {
     axios.get("/api/books").then((response) => {
@@ -107,4 +107,4 @@ function index() {
   );
 }
 
-export default index;
+export default Index;

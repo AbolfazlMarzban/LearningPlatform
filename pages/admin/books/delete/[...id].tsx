@@ -20,7 +20,7 @@ function DeleteBook() {
     })
     }
    
-  }, [id?.length])
+  }, [])
 
   function goBack(){
     router.push('/admin/books')
