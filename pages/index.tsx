@@ -18,12 +18,12 @@ export default function Home() {
             </p>
             <div className="flex gap-3 mt-4">
                 <div className="bg-violet-500 text-white p-2 rounded-full px-3">
-                  <Link href={'tel:+989183933164'}>
+                  <Link href={`tel:+989183933164`}>
                   call me!
                   </Link>
                 </div>
                 <div className="bg-violet-500 text-white p-2 rounded-full px-3">
-                  <Link href={'mailto:abolfazlmarzban39@gmail.com'}>
+                  <Link href={`mailto:abolfazlmarzban39@gmail.com`}>
                   mail me!
                   </Link>
                 </div>

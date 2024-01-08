@@ -16,8 +16,8 @@ useEffect(()=>{
 if(courses.length){
      return (
     <Layout>
-        {courses.map((course: any)=> 
-             (<div className="max-w-sm rounded-xl shadow-xl">
+        {courses.map((course: any, i:any)=> 
+             (<div className="max-w-sm rounded-xl shadow-xl" key={i}>
              <Image
                     src={course.address}
                     alt=""

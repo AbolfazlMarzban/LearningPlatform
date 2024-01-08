@@ -17,8 +17,8 @@ function Index() {
   if (books.length > 0) {
     return (
       <Layout>
-        {books.map((book: any) => (
-          <div className="max-w-sm rounded-xl shadow-xl">
+        {books.map((book: any, i:any) => (
+          <div className="max-w-sm rounded-xl shadow-xl" key={i}>
             <Image
               src={book.address}
               alt=""
