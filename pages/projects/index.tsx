@@ -15,10 +15,11 @@ useEffect(()=>{
 if(projects.length > 0){
         return (
     <Layout>
+      <div className='flex gap-3'>
         {projects.map((project: any, i:any)=> 
              (
              <div className="max-w-md rounded-xl shadow-xl bg-gray-300 bg-opacity-50 p-3" key={i}>
-            <a href={project.link}>
+            <a target='_blank' href={project.link}>
              <Image
                     src={project.address}
                     alt=""
@@ -36,6 +37,7 @@ if(projects.length > 0){
             </a>
         </div>)
         )}
+      </div>
     </Layout>
     );
 } else {
