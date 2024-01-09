@@ -17,7 +17,7 @@ if(projects.length > 0){
     <Layout>
         {projects.map((project: any, i:any)=> 
              (
-             <div className="max-w-sm rounded-xl shadow-xl" key={i}>
+             <div className="max-w-md rounded-xl shadow-xl bg-gray-300 bg-opacity-50 p-3" key={i}>
             <a href={project.link}>
              <Image
                     src={project.address}
@@ -30,7 +30,6 @@ if(projects.length > 0){
                   />
          
             <div className="p-5">
-               
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-black dark:text-white">{project.name}</h5>
                 <p className="mb-3 font-normal text-black dark:text-gray-400">{project.description}</p>
             </div>
