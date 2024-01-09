@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <Layout>
       <div className="w-full flex justify-center items-center">
-        <div className="bg-gray-300 rounded-lg p-3 bg-opacity-50 flex gap-4 w-1/2 items-center">
+        <div className="bg-gray-300 rounded-lg p-3 bg-opacity-50 flex flex-col sm:flex-row  gap-4 w-1/2 items-center">
           <div className="flex flex-col ">
             <h1 className="font-bold text-lg">{`Hi! I'm Abolfazl Marzban.`}</h1>
             <h2 className="text-lg font-semibold">{`A full stack freelance developer`}</h2>
