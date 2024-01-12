@@ -1,11 +1,19 @@
 import AdminLayout from '@/components/adminLayout';
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Index() {
     const [about, setAbout] = useState('')
+    useEffect(()=>{
+        (async()=>{
+            const result = await axios.get('/api/aboutManage')
+            if(result.data){
+                setAbout(result.data[0].text)
+            }
+        })()
+    })
     async function saveAbout() {
         try{
             const result = await axios.post('/api/aboutManage', {'about': about})
