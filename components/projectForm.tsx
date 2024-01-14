@@ -31,7 +31,7 @@ function ProjectForm({
       if(image.length){
         const fileBody = new FormData();
       fileBody.append("image", image[0]);
-      const path = await axios.post("/api/upload",fileBody);
+      const path = await axios.post("/api/upload",fileBody, {headers: {'Content-Type': 'undefined'}});
        address = path.data
        data = { name, link, description, address };
       } else {
