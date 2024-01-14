@@ -51,6 +51,7 @@ function Layout({ children }: any) {
   return (
     <main
       className={`flex min-w-full min-h-screen flex-col justify-between items-center ${noto.className}`}
+      style={{'height': 'auto', 'width': 'auto'}}
       ref={vantaRef}
     >
       <Navbar></Navbar>
