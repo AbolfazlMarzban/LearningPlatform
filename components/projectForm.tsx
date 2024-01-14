@@ -31,7 +31,12 @@ function ProjectForm({
       if(image.length){
         const fileBody = new FormData();
       fileBody.append("image", image[0]);
-      const path = await axios.post("/api/upload",fileBody, {headers: {'Content-Type': 'multipart/form-data'}});
+      const path = await axios.post("/api/upload",
+      {headers: {"Content-Type": "multipart/form-data",
+      "Accept": "*/*"
+  },
+  fileBody
+});
        address = path.data
        data = { name, link, description, address };
       } else {
