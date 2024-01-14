@@ -50,7 +50,7 @@ function Layout({ children }: any) {
   }, [vantaEffect]);
   return (
     <main
-      className={`flex min-h-screen flex-col justify-between items-center ${noto.className}`}
+      className={`flex min-w-full min-h-screen flex-col justify-between items-center ${noto.className}`}
       ref={vantaRef}
     >
       <Navbar></Navbar>
