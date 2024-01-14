@@ -29,6 +29,9 @@ function AdminLayout({children}:any) {
                 <Link href={'/admin/about'} className='p-4 hover:bg-white hover:text-sky-900'>
                     About
                 </Link>
+                <Link href={'/admin/contacts'} className='p-4 hover:bg-white hover:text-sky-900'>
+                    Contacts
+                </Link>
                 </nav>
             </aside>
             <div className='w-full p-4 border-solid border-4 border-sky-900'>
