@@ -15,9 +15,15 @@ function About() {
   return (
     <Layout>
       <div className="flex justify-center items-center bg-gray-300 bg-opacity-50 p-3 m-3 rounded-lg">
-        <p className="p-4">
-            {about}
-        </p>
+        {/* <p className="p-4"> */}
+        {/* </p> */}
+        {/* {()=>{
+          return(
+            <>
+            
+            </>
+          )
+        }} */}
       </div>
     </Layout> 
   );
