@@ -25,6 +25,7 @@ function Index() {
         localStorage.setItem("abolID", result.data._id);
         setShowLogin(false);
       } else {
+        setShowError(true)
       }
     } catch (error) {
       console.log(error);
