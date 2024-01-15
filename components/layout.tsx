@@ -29,7 +29,8 @@ function Layout({ children }: any) {
           midtoneColor: 0x93d3ed,
           lowlightColor: 0xfc8bb2,
           baseColor: 0x313030,
-          backgroundColor: 0xa394d9
+          color: 0xddef21,
+          backgroundColor: 0x606060
           // backgroundColor: 0x0,
           // color: 0xffffff,
           // mouseControls: true,
