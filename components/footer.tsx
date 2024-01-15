@@ -14,7 +14,7 @@ function Footer() {
     })();
   }, []);
   return (
-    <div className="bg-white w-full flex gap-4 justify-center py-1">
+    <div className="bg-white w-full flex gap-4 justify-center py-1 flex-wrap">
       <div className="flex gap-1 items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
