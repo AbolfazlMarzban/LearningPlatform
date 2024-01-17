@@ -31,7 +31,7 @@ function Layout({ children }: any) {
           baseColor: 0x313030,
           // color: 0xddef21,
           // backgroundColor: 0x606060
-          backgroundColor: 0x60624,
+          backgroundColor: 0x8082c,
           color: 0xff0505,
           // mouseControls: true,
           // touchControls: true,
