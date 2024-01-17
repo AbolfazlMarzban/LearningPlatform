@@ -33,7 +33,7 @@ function Layout({ children }: any) {
           color: 0xff0505,
           minHeight: 1.00,
           minWidth: 1.00,
-          scale: 0.50,
+          scale: 1.00,
           scaleMobile: 0.50,
           size: 1.00
           // points: 5.00,
