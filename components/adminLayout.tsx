@@ -23,6 +23,9 @@ function AdminLayout({children}:any) {
                 <Link href={'/admin/projects'} className='p-4 hover:bg-white hover:text-sky-900'>
                     Projects
                 </Link>
+                <Link href={'/admin/blog'} className='p-4 hover:bg-white hover:text-sky-900'>
+                    Blog
+                </Link>
                 <Link href={'/admin/books'} className='p-4 hover:bg-white hover:text-sky-900'>
                     Books
                 </Link>
