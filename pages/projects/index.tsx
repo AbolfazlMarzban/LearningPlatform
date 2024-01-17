@@ -15,7 +15,7 @@ useEffect(()=>{
 if(projects.length > 0){
         return (
     <Layout>
-      <div className='flex gap-3 flex-wrap justify-center items-center'>
+      <div className='h-screen flex gap-3 flex-wrap justify-center items-center'>
         {projects.map((project: any, i:any)=> 
              (
              <div className="max-w-md rounded-xl shadow-xl bg-gray-300 bg-opacity-50 p-3" key={i}>

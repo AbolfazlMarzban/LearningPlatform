@@ -1,5 +1,6 @@
 import Image from "next/image";
-import logo from "../public/logo-abol.png";
+// import logo from "../public/logo-abol.png";
+import logo from "../public/logo.png"
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
@@ -46,12 +47,12 @@ function Navbar() {
                   <Image
                     src={logo}
                     alt={"abolfazlmarzban"}
-                    className="block h-12 w-auto lg:hidden"
+                    className="block h-8 w-auto lg:hidden"
                   ></Image>
                   <Image
                     src={logo}
                     alt={"abolfazlmarzban"}
-                    className="hidden h-12 w-auto lg:block"
+                    className="hidden h-8 w-auto lg:block"
                   ></Image>
                 </div>
                 <div className="hidden sm:ml-6 sm:block">

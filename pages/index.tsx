@@ -37,9 +37,11 @@ export default function Home() {
           <div className="w-1/2">
             <Image
               src={me}
-              width={200}
-              height={100}
+              width={0}
+              height={0}
               alt="abolfazl marzban"
+              sizes="100vw"
+              style={{ width: "100%", height: "auto" }}
               className="rounded-lg"
             ></Image>
           </div>
