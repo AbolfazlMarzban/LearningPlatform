@@ -2,6 +2,10 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
+import dynamic from 'next/dynamic';
+import 'react-quill/dist/quill.snow.css';
+
+const QuillEditor = dynamic(() => import('react-quill'), { ssr: false });
 
 function PostForm({
   _id,
@@ -12,10 +16,44 @@ function PostForm({
 }: any) {
   const router = useRouter();
   const [name, setName] = useState("");
-  const [link, setlink] = useState("");
+  const [text, setText] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState([]);
   const [url, setUrl] = useState("");
+  const quillModules = {
+    toolbar: [
+      [{ header: [1, 2, 3, false] }],
+      ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+      [{ list: 'ordered' }, { list: 'bullet' }],
+      ['link', 'image'],
+      [{ align: [] }],
+      [{ color: [] }],
+      ['code-block'],
+      ['clean'],
+    ],
+  };
+
+  const quillFormats = [
+    'header',
+    'bold',
+    'italic',
+    'underline',
+    'strike',
+    'blockquote',
+    'list',
+    'bullet',
+    'link',
+    'image',
+    'align',
+    'color',
+    'code-block',
+  ];
+
+
+  const handleEditorChange = (newContent:any) => {
+    setText(newContent);
+  };
+
 
   function getImage(ev: any) {
     const f = ev.target.files;
@@ -37,9 +75,9 @@ function PostForm({
       headers: { "Content-Type": "multipart/form-data" }
     });
        address = path.data
-       data = { name, link, description, address };
+       data = { name, text, description, address };
       } else {
-        data = {name, link, description, url}
+        data = {name, text, description, url}
       }
       let result;
       if(_id){
@@ -59,10 +97,10 @@ function PostForm({
     setName(existingName)
     setUrl(existingAddress)
     setDescription(existingDescription)
-    setlink(existinglink)
+    setText(existinglink)
   }, [_id])
   return (
-    <div className="flex flex-col w-1/2">
+    <div className="flex flex-col w-full">
       <div className="flex items-center justify-center w-full">
         <label className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
           {url?.length > 0 ? (
@@ -104,7 +142,7 @@ function PostForm({
       </div>
       <div className="flex flex-col items-center justify-center w-full p-4 gap-2">
         <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-          Project name
+          Post Title
         </label>
         <input
           type="text"
@@ -116,19 +154,7 @@ function PostForm({
           onChange={(ev) => setName(ev.target.value)}
         />
         <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-          Project link
-        </label>
-        <input
-          type="text"
-          id="first_name"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="Project link"
-          required
-          value={link}
-          onChange={(ev) => setlink(ev.target.value)}
-        />
-        <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-          Project description
+          Post Short Description
         </label>
         <textarea
           id="first_name"
@@ -138,6 +164,16 @@ function PostForm({
           value={description}
           onChange={(ev) => setDescription(ev.target.value)}
         />
+        <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+          Post Body
+        </label>
+        <QuillEditor
+            value={text}
+            onChange={handleEditorChange}
+            modules={quillModules}
+            formats={quillFormats}
+            className="w-full h-72 mt-2 bg-white"
+          />
         <button
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
           onClick={submit}
