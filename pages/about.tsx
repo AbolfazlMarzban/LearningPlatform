@@ -18,9 +18,7 @@ function About() {
   return (
     <Layout>
       <div
-        className="flex justify-center items-center bg-gray-300 bg-opacity-50 p-3 m-3 rounded-lg"
-        style={{ height: "auto" }}
-      >
+        className="flex justify-center items-center bg-gray-300 bg-opacity-50 p-3 m-3 rounded-lg"      >
         {/* <QuillEditor value={about} readOnly={true} /> */}
         <div dangerouslySetInnerHTML={{__html: about}}>
 
