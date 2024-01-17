@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://abolfazlmarzban.netlify.app
+
+# Sitemaps
+Sitemap: http://abolfazlmarzban.netlify.app/sitemap.xml
