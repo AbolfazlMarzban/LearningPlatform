@@ -55,7 +55,7 @@ function Navbar() {
                   ></Image>
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
-                  <div className="flex space-x-4">
+                  <div className="flex space-x-4 text-white">
                     {navigation.map((item) => (
                       <Link
                         key={item.name}
@@ -64,7 +64,7 @@ function Navbar() {
                           item.current
                             ? "bg-gray-900 text-white"
                             : "text-gray-900 hover:bg-gray-700 hover:text-white",
-                          "rounded-md px-3 py-2 text-sm font-medium"
+                          "rounded-md px-3 py-2 text-sm font-medium text-white"
                         )}
                         aria-current={item.current ? "page" : undefined}
                       >
