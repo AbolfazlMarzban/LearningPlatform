@@ -31,10 +31,10 @@ function Layout({ children }: any) {
           // backgroundColor: 0x606060
           backgroundColor: 0x8082c,
           color: 0xff0505,
-          minHeight: 1.00,
-          minWidth: 1.00,
+          minHeight: 300.00,
+          minWidth: 10.00,
           scale: 1.00,
-          scaleMobile: 0.50,
+          scaleMobile: 0.7,
           size: 1.00
           // points: 5.00,
           // spacing: 18.00
@@ -47,11 +47,11 @@ function Layout({ children }: any) {
   }, [vantaEffect]);
   return (
     <main
-      className={`flex min-w-full min-h-screen flex-col justify-between items-center ${noto.className}`}
+      className={`flex w-full h-screen flex-col justify-between items-center ${noto.className}`}
       ref={vantaRef}
     >
       <Navbar></Navbar>
-        <div style={{ zIndex: "10" }} className="py-5">
+        <div style={{ zIndex: "10" }} className="py-5 overflow-auto">
           {children}
         </div>
       <Footer></Footer>
