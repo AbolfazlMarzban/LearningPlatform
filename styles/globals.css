@@ -38,7 +38,12 @@ body {
   height: auto;
   position: unset !important;
 }
-
+.profilePicbox{
+  background-image: url('../public/me.jpeg');
+  background-size: cover;
+  background-position: bottom 370px right 0px;
+  border-radius: 20px;
+}
 canvas{
   max-width: 100% !important;
   /* min-height: 100% !important; */

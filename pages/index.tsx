@@ -34,16 +34,19 @@ export default function Home() {
                 </div>
             </div>
           </div>
-          <div className="w-1/2">
+          <div className="w-1/2 max-sm:hidden">
             <Image
               src={me}
               width={0}
               height={0}
               alt="abolfazl marzban"
               sizes="100vw"
-              style={{ width: "100%", height: "auto" }}
+              style={{ width: "auto", height: "100%" }}
               className="rounded-lg"
             ></Image>
+          </div>
+          <div className="sm:hidden w-full profilePicbox h-64">
+
           </div>
         </div>
       </div>
