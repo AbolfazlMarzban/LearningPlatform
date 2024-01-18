@@ -75,11 +75,12 @@ function PostForm({
       headers: { "Content-Type": "multipart/form-data" }
     });
        address = path.data
-       data = { name, text, description, address };
+       data = { 'title': name, 'text': text, 'description': description,'postPic': address };
       } else {
-        data = {name, text, description, url}
+        data = {'title':name,'text': text, 'description': description,'postPic': url}
       }
       let result;
+      console.log('data', data)
       if(_id){
          result = await axios.put(`/api/projects?id=${_id}`, {...data})
       } else {
@@ -175,7 +176,7 @@ function PostForm({
             className="w-full h-72 mt-2 bg-white"
           />
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-10 rounded"
           onClick={submit}
         >
           Submit

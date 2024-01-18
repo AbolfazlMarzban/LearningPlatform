@@ -23,13 +23,10 @@ function Index() {
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" className="px-6 py-3">
-                Product Pic
+                Post Pic
               </th>
               <th scope="col" className="px-6 py-3">
-                Name
-              </th>
-              <th scope="col" className="px-6 py-3">
-                link
+                Post title
               </th>
               <th scope="col" className="px-6 py-3">
                 Actions
@@ -54,7 +51,7 @@ function Index() {
                   />
                 </th>
                 <td className="px-6 py-4">{post.name}</td>
-                <td className="px-6 py-4">{post.link}</td>
+                {/* <td className="px-6 py-4">{post.link}</td> */}
                 <td className="px-6 py-4">
                   <div className="flex gap-4">
                     <Link href={"/admin/projects/edit/" + post._id}>

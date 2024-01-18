@@ -12,6 +12,7 @@ import {useRecoilState} from "recoil"
 const navigation = [
   { name: "Home", href: "/", current: false },
   { name: "Projects", href: "/projects", current: false },
+  { name: "Blog", href: "/blog", current: false },
   // { name: "Books", href: "/books", current: false },
   // { name: "Courses", href: "/courses", current: false },
   {name: "About me", href: '/about', current: false},
