@@ -1,4 +1,5 @@
 import { mongooseConnect } from "@/lib/mongoos";
+import { Post } from "@/models/posts";
 import { Project } from "@/models/project";
 
 export default async function handler(req: any, res: any) {
@@ -6,29 +7,29 @@ export default async function handler(req: any, res: any) {
   const { method } = req;
   if (method == "POST") {
     console.log("req body", req.body);
-    const { name, link, description, address } = req.body;
-    const projectDoc = await Project.create({
-      name,
-      link,
+    const { title, text, description, postPic } = req.body;
+    const projectDoc = await Post.create({
+      title,
+      text,
       description,
-      address,
+      postPic,
     });
     res.json(projectDoc);
   }
   if (method == "PUT") {
     if (req.query?.id) {
       let result;
-      if(req.body.address){
-      const { name, link, description, address } = req.body;
-       result =  await Project.updateOne(
+      if(req.body.postPic){
+      const { title, text, description, postPic } = req.body;
+       result =  await Post.updateOne(
         { _id: req.query.id },
-        { name: name, link: link, description: description, address: address }
+        { title: title, text: text, description: description, postPic: postPic }
       );
       } else {
-        const { name, link, description, url } = req.body;
-        result =  await Project.updateOne(
+        const { title, text, description, postPic } = req.body;
+        result =  await Post.updateOne(
           { _id: req.query.id },
-          { name: name, link: link, description: description, address: url }
+          { title: title, text: text, description: description, postPic: postPic }
         );
       }
       res.json(result);
@@ -37,7 +38,7 @@ export default async function handler(req: any, res: any) {
   }
   if (method === "GET") {
     if (req.query?.id) {
-      const result = await Project.findOne({ _id: req.query.id });
+      const result = await Post.findOne({ _id: req.query.id });
       res.json(result);
     }
     //  else if(req.query?.name){
@@ -49,7 +50,7 @@ export default async function handler(req: any, res: any) {
   }
   if(method == "DELETE"){
     if(req.query?.id){
-      const result = await Project.deleteOne({ _id: req.query.id })
+      const result = await Post.deleteOne({ _id: req.query.id })
       res.json(true)
     }
   }
