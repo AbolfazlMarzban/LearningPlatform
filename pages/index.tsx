@@ -45,7 +45,7 @@ export default function Home() {
               className="rounded-lg"
             ></Image>
           </div>
-          <div className="sm:hidden w-full profilePicbox h-64">
+          <div className="sm:hidden w-3/4 profilePicbox h-72">
 
           </div>
         </div>
