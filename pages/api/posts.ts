@@ -45,7 +45,7 @@ export default async function handler(req: any, res: any) {
     //   const result = await Projec
     // } 
     else {
-      res.json(await Project.find());
+      res.json(await Post.find());
     }
   }
   if(method == "DELETE"){

@@ -82,13 +82,13 @@ function PostForm({
       let result;
       console.log('data', data)
       if(_id){
-         result = await axios.put(`/api/projects?id=${_id}`, {...data})
+         result = await axios.put(`/api/posts?id=${_id}`, {...data})
       } else {
-         result = await axios.post("/api/projects", {...data})
+         result = await axios.post("/api/posts", {...data})
       }
       if (result) {
-        console.log("proeject result", result);
-        router.push('/admin/projects')
+        console.log("post result", result);
+        router.push('/admin/posts')
       }
     } catch (error) {
       console.log(error);

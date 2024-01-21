@@ -1,12 +1,20 @@
 import AdminLayout from '@/components/adminLayout';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import axios from 'axios';
 
 function Index() {
     const [posts, setPosts] = useState([])
     const Router = useRouter()
+    useEffect(()=>{
+      (async()=>{
+        const result = await axios.get('/api/posts')
+        console.log('posts', result.data)
+        setPosts(result.data)
+      })()
+    }, [])
     return (
         <AdminLayout>
             <div>
@@ -44,13 +52,13 @@ function Index() {
                   className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                 >
                   <Image
-                    src={post.address}
+                    src={post.postPic}
                     alt=""
                     width={100}
                     height={100}
                   />
                 </th>
-                <td className="px-6 py-4">{post.name}</td>
+                <td className="px-6 py-4">{post.title}</td>
                 {/* <td className="px-6 py-4">{post.link}</td> */}
                 <td className="px-6 py-4">
                   <div className="flex gap-4">
