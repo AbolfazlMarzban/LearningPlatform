@@ -62,7 +62,7 @@ function Index() {
                 {/* <td className="px-6 py-4">{post.link}</td> */}
                 <td className="px-6 py-4">
                   <div className="flex gap-4">
-                    <Link href={"/admin/projects/edit/" + post._id}>
+                    <Link href={"/admin/blog/edit/" + post._id}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -79,7 +79,7 @@ function Index() {
                     </svg>
                     </Link>
                  
-                    <Link href={"/admin/projects/delete/" +post._id}>
+                    <Link href={"/admin/blog/delete/" +post._id}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
