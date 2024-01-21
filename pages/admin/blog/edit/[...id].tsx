@@ -3,16 +3,17 @@ import ProjectForm from '@/components/projectForm';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
-function EditProject() {
+import PostForm from '@/components/postForm';
+function EditPost() {
   const router = useRouter()
-  const [projectInfo, setProjectInfo] :any = useState({})
+  const [postInfo, setPostInfo] :any = useState({})
   var id = router.query.id
   useEffect(() =>{
     console.log('id', id)
     if(id){
-       axios.get("/api/projects?id="+id[0]).then(response => {
+       axios.get("/api/posts?id="+id[0]).then(response => {
         if(response.data){
-            setProjectInfo(response.data)
+            setPostInfo(response.data)
         }
     })
     }
@@ -20,9 +21,9 @@ function EditProject() {
   }, [id?.length])
   return (
     <AdminLayout>
-      {projectInfo && (
-          <ProjectForm 
-          {...projectInfo}
+      {postInfo && (
+          <PostForm 
+          {...postInfo}
         />      
       )}
     </AdminLayout>
@@ -30,4 +31,4 @@ function EditProject() {
   );
 }
 
-export default EditProject;
+export default EditPost;

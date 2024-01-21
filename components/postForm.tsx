@@ -9,10 +9,10 @@ const QuillEditor = dynamic(() => import('react-quill'), { ssr: false });
 
 function PostForm({
   _id,
-  name :existingName,
-  link: existinglink,
+  title :existingName,
+  text: existinglink,
   description: existingDescription,
-  address: existingAddress,
+  postPic: existingAddress,
 }: any) {
   const router = useRouter();
   const [name, setName] = useState("");
@@ -88,7 +88,7 @@ function PostForm({
       }
       if (result) {
         console.log("post result", result);
-        router.push('/admin/posts')
+        router.push('/admin/blog')
       }
     } catch (error) {
       console.log(error);
