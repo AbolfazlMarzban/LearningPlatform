@@ -1,10 +1,15 @@
-'use client';
-
 import Layout from "@/components/layout";
 import BookSlug from "@/components/bookSlug";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import axios from "axios";
+
+export async function getStaticPaths() {
+    return {
+        paths:[],
+        fallback: true
+    }
+}
 
 export async function getStaticProps() {
     const footer = await fetch(`${process.env.BASE_URL}/api/contactsManage`, {
@@ -31,11 +36,14 @@ export default function Book({footer}:any){
         }
     }, [name?.length])
     return(
-        <Layout footer={footer}>
-            {bookInfo && (
-            <BookSlug 
-            {...bookInfo}/>
-            )}
-        </Layout>
+        // <Layout footer={footer}>
+        //     {bookInfo && (
+        //     <BookSlug 
+        //     {...bookInfo}/>
+        //     )}
+        // </Layout>
+        <div>
+
+        </div>
     )
 }
