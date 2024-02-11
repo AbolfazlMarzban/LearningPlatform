@@ -10,25 +10,28 @@ export async function getStaticProps() {
     method: "GET",
   });
   const data = await footer.json();
-  // console.log('process', url.parse(adr, true).host)
-  // const about = await fetch(``)
+  const aboutdata = await fetch(`${process.env.BASE_URL}/api/aboutManage`, {
+    method: 'GET'
+  })
+  const about = await aboutdata.json()
   return {
     props: {
       footer: data[0],
+      about: about[0].text
     },
   };
 }
 
-function About({footer}:any) {
-  const [about, setAbout] = useState("");
-  useEffect(() => {
-    (async () => {
-      const result = await axios.get("/api/aboutManage");
-      if (result.data) {
-        setAbout(result.data[0].text);
-      }
-    })();
-  }, []);
+function About({footer, about}:any) {
+  // const [about, setAbout] = useState("");
+  // useEffect(() => {
+  //   (async () => {
+  //     const result = await axios.get("/api/aboutManage");
+  //     if (result.data) {
+  //       setAbout(result.data[0].text);
+  //     }
+  //   })();
+  // }, []);
   return (
     <Layout footer={footer}>
       <div

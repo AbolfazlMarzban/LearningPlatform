@@ -2,16 +2,28 @@ import Layout from '@/components/layout';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
-function Index() {
-    const [posts, setPosts] = useState([])
-    useEffect(()=>{
-        (async()=>{
-            const result = await axios.get('/api/posts')
-            setPosts(result.data)
-        })()
-    }, [])
+export async function getStaticProps() {
+    const footer = await fetch(`${process.env.BASE_URL}/api/contactsManage`, {
+      method: "GET",
+    });
+    const data = await footer.json();
+    return {
+      props: {
+        footer: data[0],
+      },
+    };
+  }
+
+function Index({footer}:any) {
+    // const [posts, setPosts] = useState([])
+    // useEffect(()=>{
+    //     (async()=>{
+    //         const result = await axios.get('/api/posts')
+    //         setPosts(result.data)
+    //     })()
+    // }, [])
     return (
-        <Layout>
+        <Layout footer={footer}>
             <div>
                 
             </div>

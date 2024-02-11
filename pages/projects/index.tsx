@@ -5,16 +5,33 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Image from 'next/image';
 
-function Index() {
-const [projects, setProjects] = useState([])
-useEffect(()=>{
-    axios.get("/api/projects").then((response) => {
-        setProjects(response.data);
-      });
-}, [projects.length])
+export async function getStaticProps() {
+  const footer = await fetch(`${process.env.BASE_URL}/api/contactsManage`, {
+    method: "GET",
+  });
+  const data = await footer.json();
+  const pdata = await fetch(`${process.env.BASE_URL}/api/projects`, {
+    method : "GET"
+  })
+  const projects = await pdata.json()
+  return {
+    props: {
+      footer: data[0],
+      projectss: projects
+    },
+  };
+}
+
+function Index({footer, projectss}:any) {
+const [projects, setProjects] = useState(projectss)
+// useEffect(()=>{
+//     axios.get("/api/projects").then((response) => {
+//         setProjects(response.data);
+//       });
+// }, [projects.length])
 if(projects.length > 0){
         return (
-    <Layout>
+    <Layout footer={footer}>
       <div className='h-screen flex gap-2 flex-wrap justify-center items-center mb-5'>
         {projects.map((project: any, i:any)=> 
              (
@@ -42,7 +59,7 @@ if(projects.length > 0){
     );
 } else {
     return(
-        <Layout>
+        <Layout footer={footer}>
         <div role="status">
           <svg
             aria-hidden="true"
