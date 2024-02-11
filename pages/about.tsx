@@ -5,7 +5,21 @@ import dynamic from "next/dynamic";
 import "react-quill/dist/quill.snow.css";
 const QuillEditor = dynamic(() => import("react-quill"), { ssr: false });
 
-function About() {
+export async function getStaticProps() {
+  const footer = await fetch(`${process.env.BASE_URL}/api/contactsManage`, {
+    method: "GET",
+  });
+  const data = await footer.json();
+  // console.log('process', url.parse(adr, true).host)
+  // const about = await fetch(``)
+  return {
+    props: {
+      footer: data[0],
+    },
+  };
+}
+
+function About({footer}:any) {
   const [about, setAbout] = useState("");
   useEffect(() => {
     (async () => {
@@ -16,7 +30,7 @@ function About() {
     })();
   }, []);
   return (
-    <Layout>
+    <Layout footer={footer}>
       <div
         className="flex justify-center items-center bg-gray-300 bg-opacity-50 p-3 m-3 rounded-lg"      >
         <div className="h-full" dangerouslySetInnerHTML={{__html: about}}>

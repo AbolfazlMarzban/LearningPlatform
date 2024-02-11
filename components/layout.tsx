@@ -10,7 +10,7 @@ import GLOBE from "vanta/dist/vanta.globe.min"
 
 const noto = Noto_Sans_Mono({ subsets: ["latin"] });
 
-function Layout({ children }: any) {
+function Layout({footer, children }: any) {
   // const NET : any = require("vanta/dist/vanta.globe.min")
   const [vantaEffect, setVantaEffect]: any = useState(0);
   const vantaRef = useRef(null);
@@ -54,7 +54,7 @@ function Layout({ children }: any) {
         <div style={{ zIndex: "10" }} className="py-5 overflow-auto">
           {children}
         </div>
-      <Footer></Footer>
+      <Footer footer={footer}></Footer>
     </main>
   );
 }

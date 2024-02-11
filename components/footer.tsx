@@ -1,18 +1,19 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-function Footer() {
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [email, setEmail] = useState("");
 
-  useEffect(() => {
-    (async () => {
-      const result = await axios.get("/api/contactsManage");
-      console.log("res", result);
-      setPhoneNumber(result.data[0].phonenumber);
-      setEmail(result.data[0].email);
-    })();
-  }, []);
+
+function Footer({footer}:any) {
+  // const [phoneNumber, setPhoneNumber] = useState("");
+  // const [email, setEmail] = useState("");
+  // useEffect(() => {
+  //   (async () => {
+  //     const result = await axios.get("/api/contactsManage");
+  //     console.log("res", result);
+  //     setPhoneNumber(result.data[0].phonenumber);
+  //     setEmail(result.data[0].email);
+  //   })();
+  // }, []);
   return (
     <div className="bg-white w-full flex gap-4 justify-center py-1 flex-wrap">
       <div className="flex gap-1 items-center">
@@ -30,7 +31,7 @@ function Footer() {
             d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"
           />
         </svg>
-        <span className="text-sm font-bold">{phoneNumber}</span>
+        <span className="text-sm font-bold">{footer.phonenumber}</span>
       </div>
       <div className="flex gap-1 items-center">
         <svg
@@ -48,7 +49,7 @@ function Footer() {
           />
         </svg>
 
-        <span className="text-sm font-bold">{email}</span>
+        <span className="text-sm font-bold">{footer.email}</span>
       </div>
     </div>
   );
