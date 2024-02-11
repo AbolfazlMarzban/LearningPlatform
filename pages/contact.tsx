@@ -3,30 +3,42 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Link from "next/link";
 
-function Contact() {
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [email, setEmail] = useState("");
-  const [linkedin, setLinkedin] = useState("");
-  const [github, setGithub] = useState("");
-  const [instagram, setInstagram] = useState("");
-  useEffect(() => {
-    (async () => {
-      const result = await axios.get("/api/contactsManage");
-      console.log("res", result);
-      setPhoneNumber(result.data[0].phonenumber);
-      setEmail(result.data[0].email);
-      setLinkedin(result.data[0].linkedin);
-      setGithub(result.data[0].github);
-      setInstagram(result.data[0].instagram);
-    })();
-  }, []);
+export async function getStaticProps() {
+  const footer = await fetch(`${process.env.BASE_URL}/api/contactsManage`, {
+    method: "GET",
+  });
+  const data = await footer.json();
+  return {
+    props: {
+      footer: data[0],
+    },
+  };
+}
+
+function Contact({footer}:any) {
+  // const [phoneNumber, setPhoneNumber] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [linkedin, setLinkedin] = useState("");
+  // const [github, setGithub] = useState("");
+  // const [instagram, setInstagram] = useState("");
+  // useEffect(() => {
+  //   (async () => {
+  //     const result = await axios.get("/api/contactsManage");
+  //     console.log("res", result);
+  //     setPhoneNumber(result.data[0].phonenumber);
+  //     setEmail(result.data[0].email);
+  //     setLinkedin(result.data[0].linkedin);
+  //     setGithub(result.data[0].github);
+  //     setInstagram(result.data[0].instagram);
+  //   })();
+  // }, []);
   return (
-    <Layout>
+    <Layout footer={footer}>
       <div
-        className="flex flex-col gap-4 w-full justify-center items-start bg-gray-300 bg-opacity-50 p-3 m-3 rounded-lg"
+        className="flex flex-col gap-4 justify-center items-start bg-gray-300 bg-opacity-50 p-3 m-3 rounded-lg"
         style={{ height: "auto" }}
       >
-        <Link target="_blank" href={`tel:${phoneNumber}`} className="flex gap-3 items-center">
+        <Link target="_blank" href={`tel:${footer.phonenumber}`} className="flex gap-3 items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -41,9 +53,9 @@ function Contact() {
               d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"
             />
           </svg>
-          <span className="font-bold text-lg"> {phoneNumber}</span>
+          <span className="font-bold text-lg"> {footer.phonenumber}</span>
         </Link>
-        <Link target="_blank" href={`mailto:${email}`} className="flex gap-3 items-center">
+        <Link target="_blank" href={`mailto:${footer.email}`} className="flex gap-3 items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -59,9 +71,9 @@ function Contact() {
             />
           </svg>
 
-          <span className="font-bold text-lg"> {email}</span>
+          <span className="font-bold text-lg"> {footer.email}</span>
         </Link>
-        <Link target="_blank" href={linkedin} className="flex gap-3 items-center">
+        <Link target="_blank" href={footer.linkedin} className="flex gap-3 items-center">
           <svg
             fill="#000000"
             width="25px"
@@ -74,7 +86,7 @@ function Contact() {
           </svg>
           <span className="font-bold text-lg">Abolfazl Marzban</span>
         </Link>
-        <Link target="_blank" href={github} className="flex gap-3 items-center">
+        <Link target="_blank" href={footer.github} className="flex gap-3 items-center">
           <svg
             fill="#000000"
             width="25px"
@@ -88,7 +100,7 @@ function Contact() {
           </svg>
           <span className="font-bold text-lg">Abolfazl Marzban</span>
         </Link>
-        <Link target="_blank" href={instagram} className="flex gap-3 items-center">
+        <Link target="_blank" href={footer.instagram} className="flex gap-3 items-center">
           <svg
             fill="#000000"
             width="25px"
