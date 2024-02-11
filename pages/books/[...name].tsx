@@ -6,7 +6,19 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-export default function Book(){
+export async function getStaticProps() {
+    const footer = await fetch(`${process.env.BASE_URL}/api/contactsManage`, {
+      method: "GET",
+    });
+    const data = await footer.json();
+    return {
+      props: {
+        footer: data[0],
+      },
+    };
+  }
+
+export default function Book({footer}:any){
     const router = useRouter()
     var name :any = router.query.name
     const [bookInfo, setBookInfo] : any = useState({})
@@ -19,7 +31,7 @@ export default function Book(){
         }
     }, [name?.length])
     return(
-        <Layout>
+        <Layout footer={footer}>
             {bookInfo && (
             <BookSlug 
             {...bookInfo}/>

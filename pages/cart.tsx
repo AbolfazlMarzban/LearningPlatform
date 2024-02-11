@@ -3,7 +3,19 @@ import Image from "next/image";
 import { cartState } from "@/context/store";
 import { useRecoilState } from "recoil";
 
-export default function Cart() {
+
+export async function getStaticProps() {
+  const footer = await fetch(`${process.env.BASE_URL}/api/contactsManage`, {
+    method: "GET",
+  });
+  const data = await footer.json();
+  return {
+    props: {
+      footer: data[0],
+    },
+  };
+}
+export default function Cart({footer}:any) {
   const [cartItems, setCartItems] = useRecoilState(cartState);
   function removeFromCart(id: any) {
     const index = cartItems.findIndex((item: any) => item._id == id);
@@ -23,7 +35,7 @@ export default function Cart() {
     }
   };
   return (
-    <Layout>
+    <Layout footer={footer}>
       {cartItems.length <= 0 ? (
         <h1 className="text-center">Your Cart is Empty!</h1>
       ) : (

@@ -7,7 +7,19 @@ import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 
-function Index() {
+
+export async function getStaticProps() {
+  const footer = await fetch(`${process.env.BASE_URL}/api/contactsManage`, {
+    method: "GET",
+  });
+  const data = await footer.json();
+  return {
+    props: {
+      footer: data[0],
+    },
+  };
+}
+function Index({footer}:any) {
   const [books, setBooks] = useState([]);
   useEffect(() => {
     axios.get("/api/books").then((response) => {
@@ -16,7 +28,7 @@ function Index() {
   }, [books.length]);
   if (books.length > 0) {
     return (
-      <Layout>
+      <Layout footer={footer}>
         {books.map((book: any, i:any) => (
           <div className="max-w-sm rounded-xl shadow-xl" key={i}>
             <Image
@@ -68,7 +80,7 @@ function Index() {
     );
   } else {
     return (
-      <Layout>
+      <Layout footer={footer}>
         <div role="status">
           <svg
             aria-hidden="true"

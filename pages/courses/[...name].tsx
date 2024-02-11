@@ -6,7 +6,19 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import CourseSlug from "@/components/courseSlug";
 
-export default function Course(){
+export async function getStaticProps() {
+    const footer = await fetch(`${process.env.BASE_URL}/api/contactsManage`, {
+      method: "GET",
+    });
+    const data = await footer.json();
+    return {
+      props: {
+        footer: data[0],
+      },
+    };
+  }
+
+export default function Course({footer}:any){
     const router = useRouter()
     var name :any = router.query.name
     const [courseInfo, setCourseInfo] : any = useState({})
@@ -19,7 +31,7 @@ export default function Course(){
         }
     }, [name?.length])
     return(
-        <Layout>
+        <Layout footer={footer}>
             {courseInfo && (
             <CourseSlug 
             {...courseInfo}/>

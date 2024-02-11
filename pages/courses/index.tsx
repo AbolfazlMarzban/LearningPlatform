@@ -6,7 +6,19 @@ import axios from 'axios';
 import Image from 'next/image';
 import Link from 'next/link';
 
-function Index() {
+export async function getStaticProps() {
+  const footer = await fetch(`${process.env.BASE_URL}/api/contactsManage`, {
+    method: "GET",
+  });
+  const data = await footer.json();
+  return {
+    props: {
+      footer: data[0],
+    },
+  };
+}
+
+function Index({footer}:any) {
 const [courses, setcourses] = useState([])
 useEffect(()=>{
     axios.get("/api/courses").then((response) => {
@@ -15,7 +27,7 @@ useEffect(()=>{
 }, [courses.length])
 if(courses.length){
      return (
-    <Layout>
+    <Layout footer={footer}>
         {courses.map((course: any, i:any)=> 
              (<div className="max-w-sm rounded-xl shadow-xl" key={i}>
              <Image
@@ -48,7 +60,7 @@ if(courses.length){
     ); 
 } else{
     return(
-        <Layout>
+        <Layout footer={footer}>
         <div role="status">
           <svg
             aria-hidden="true"
