@@ -4,6 +4,7 @@ import Layout from '@/components/layout';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Image from 'next/image';
+import Head from 'next/head';
 
 export async function getStaticProps() {
   const footer = await fetch(`${process.env.BASE_URL}/api/contactsManage`, {
@@ -24,13 +25,13 @@ export async function getStaticProps() {
 
 function Index({footer, projectss}:any) {
 const [projects, setProjects] = useState(projectss)
-// useEffect(()=>{
-//     axios.get("/api/projects").then((response) => {
-//         setProjects(response.data);
-//       });
-// }, [projects.length])
-if(projects.length > 0){
-        return (
+return(
+  <>
+  <Head>
+    <title>Abolfazl Marzban - Projects</title>
+    <meta name="description" content="Freelance Full Stack Web Developer" />
+  </Head>
+{projects.length > 0 ?  (
     <Layout footer={footer}>
       <div className='h-screen flex gap-2 flex-wrap justify-center items-center mb-5'>
         {projects.map((project: any, i:any)=> 
@@ -56,9 +57,9 @@ if(projects.length > 0){
         )}
       </div>
     </Layout>
-    );
-} else {
-    return(
+    )
+      :
+    (
         <Layout footer={footer}>
         <div role="status">
           <svg
@@ -80,8 +81,11 @@ if(projects.length > 0){
           <span className="sr-only">Loading...</span>
         </div>
       </Layout>
-    )
+    )  
 }
+  </>
+)
+
 
 }
 

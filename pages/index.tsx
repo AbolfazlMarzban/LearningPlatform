@@ -2,6 +2,7 @@ import Link from "next/link";
 import Layout from "../components/layout";
 import me from "../public/me.jpeg";
 import Image from "next/image";
+import Head from "next/head";
 
 export async function getStaticProps() {
   const footer = await fetch(`${process.env.BASE_URL}/api/contactsManage`, {
@@ -18,6 +19,10 @@ export async function getStaticProps() {
 export default function Home({ footer }: any) {
   return (
     <Layout footer={footer}>
+      <Head>
+        <title>Abolfazl Marzban - Freelance Full Stack Web Developer</title>
+        <meta name="description" content="Freelance Full Stack Web Developer" />
+      </Head>
       <div className="w-full flex justify-center items-center max-sm:px-3">
         <div className="bg-gray-300 rounded-lg p-3 bg-opacity-50 flex flex-col sm:flex-row gap-4 xl:w-1/2 lg:w-1/2 md:w-1/2 sm:w-full items-center">
           <div className="flex flex-col">

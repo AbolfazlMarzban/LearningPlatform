@@ -4,6 +4,7 @@ import axios from "axios";
 import dynamic from "next/dynamic";
 import "react-quill/dist/quill.snow.css";
 const QuillEditor = dynamic(() => import("react-quill"), { ssr: false });
+import Head from "next/head";
 
 export async function getStaticProps() {
   const footer = await fetch(`${process.env.BASE_URL}/api/contactsManage`, {
@@ -34,6 +35,10 @@ function About({footer, about}:any) {
   // }, []);
   return (
     <Layout footer={footer}>
+      <Head>
+        <title>Abolfazl Marzban - About Me</title>
+        <meta name="description" content="Freelance Full Stack Web Developer" />
+      </Head>
       <div
         className="flex justify-center items-center bg-gray-300 bg-opacity-50 p-3 m-3 rounded-lg"      >
         <div className="h-full" dangerouslySetInnerHTML={{__html: about}}>
