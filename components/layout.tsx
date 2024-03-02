@@ -51,7 +51,7 @@ function Layout({footer, children }: any) {
       ref={vantaRef}
     >
       <Navbar></Navbar>
-        <div style={{ zIndex: "10" }} className="py-5 overflow-auto">
+        <div style={{ zIndex: "10" }} className="py-5 overflow-auto w-full">
           {children}
         </div>
       <Footer footer={footer}></Footer>
