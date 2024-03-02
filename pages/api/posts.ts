@@ -41,9 +41,10 @@ export default async function handler(req: any, res: any) {
       const result = await Post.findOne({ _id: req.query.id });
       res.json(result);
     }
-    //  else if(req.query?.name){
-    //   const result = await Projec
-    // } 
+     else if(req.query?.name){
+      const result = await Post.findOne({ name: req.query.name })
+      res.json(result)
+    } 
     else {
       res.json(await Post.find());
     }
