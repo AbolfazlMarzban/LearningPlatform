@@ -24,17 +24,7 @@ export async function getStaticProps({ params }: any) {
     method: "GET",
   });
   const data = await footer.json();
-  // const postdata = await fetch(
-  //   `${process.env.BASE_URL}/api/posts?name=${params["name"]}`,
-  //   {
-  //     method: "GET",
-  //   }
-  // );   
-  // let post;
-  // if(postdata){
-  //   post = await postdata.json();
-  // }
-  // console.log('param',params)
+  console.log(process.env.BASE_URL)
   const post = await axios.get(`${process.env.BASE_URL}/api/posts?name=${params["name"]}`)
   // console.log("post", post.data);
     return {
@@ -48,8 +38,6 @@ export async function getStaticProps({ params }: any) {
 function Post({ footer, post }: any) {
   return (
     <Layout footer={footer}>
-      {post && (
-        <>
       <Head>
         <title>{post.title}</title>
         <meta name="description" content={post.description} />
@@ -68,9 +56,6 @@ function Post({ footer, post }: any) {
         <div className="h-full px-4" dangerouslySetInnerHTML={{__html: post.text}}>
         </div>
       </div>
-        
-        </>
-      )}
     </Layout>
   );
 }
