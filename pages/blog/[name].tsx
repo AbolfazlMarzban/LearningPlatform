@@ -31,13 +31,14 @@ export async function getStaticProps({ params }: any) {
   );   
   const post = await postdata.json();
   console.log("post", post);
-
-  return {
-    props: {
-      footer: data[0],
-      post: post[0],
-    },
-  };
+  if(post){
+    return {
+      props: {
+        footer: data[0],
+        post: post[0],
+      },
+    };
+  }
 }
 
 function Post({ footer, post }: any) {
