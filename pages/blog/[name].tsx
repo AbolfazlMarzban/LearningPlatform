@@ -17,7 +17,7 @@ export async function getStaticPaths() {
     paths: paths,
     fallback: false,
   };
-}
+}  
 export async function getStaticProps({ params }: any) {
   const footer = await fetch(`${process.env.BASE_URL}/api/contactsManage`, {
     method: "GET",
