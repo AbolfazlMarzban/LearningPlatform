@@ -28,7 +28,7 @@ export async function getStaticProps({ params }: any) {
     {
       method: "GET",
     }
-  );
+  );   
   const post = await postdata.json();
   console.log("post", post);
 
