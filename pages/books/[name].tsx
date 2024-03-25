@@ -1,5 +1,5 @@
 import Layout from "@/components/layout";
-import BookSlug from "@/components/bookSlug";
+// import BookSlug from "@/components/bookSlug";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import axios from "axios";
