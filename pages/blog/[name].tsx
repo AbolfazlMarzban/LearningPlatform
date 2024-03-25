@@ -14,6 +14,7 @@ export async function getStaticPaths() {
     };
     paths.push(obj);
   });
+  console.log('paths', paths)
   return {
     paths: paths,
     fallback: false,

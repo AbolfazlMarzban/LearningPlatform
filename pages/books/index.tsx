@@ -38,6 +38,8 @@ function Index({ footer, bookz }: any) {
             className="max-w-xs rounded-xl shadow-xl bg-gray-300 bg-opacity-50 p-1"
             key={i}
           >
+                            <a target="_blank" href={`/books/${book.name}`}>
+
             <Image
               src={book.address}
               alt=""
@@ -55,7 +57,7 @@ function Index({ footer, bookz }: any) {
                 {book.price} $
               </h5>
 
-              <Link
+              {/* <Link
                 href={`/books/${book.name}`}
                 className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-black bg-gray-300 rounded-lg hover:bg-white"
               >
@@ -75,9 +77,11 @@ function Index({ footer, bookz }: any) {
                     d="M1 5h12m0 0L9 1m4 4L9 9"
                   />
                 </svg>
-              </Link>
+              </Link> */}
             </div>
+            </a>
           </div>
+
         ))}
       </div>
     </Layout>
