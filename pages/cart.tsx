@@ -1,7 +1,6 @@
 import Layout from "@/components/layout";
 import Image from "next/image";
-import { cartState } from "@/context/store";
-import { useRecoilState } from "recoil";
+// import { useRecoilState } from "recoil";
 
 
 export async function getStaticProps() {
@@ -16,27 +15,27 @@ export async function getStaticProps() {
   };
 }
 export default function Cart({footer}:any) {
-  const [cartItems, setCartItems] = useRecoilState(cartState);
-  function removeFromCart(id: any) {
-    const index = cartItems.findIndex((item: any) => item._id == id);
-    if(index > -1){
-      const newList :any = removeItemAtIndex(cartItems, index);
-      setCartItems(newList)
-    }
-  }
+  // const [cartItems, setCartItems] = useRecoilState(cartState);
+  // function removeFromCart(id: any) {
+  //   const index = cartItems.findIndex((item: any) => item._id == id);
+  //   if(index > -1){
+  //     const newList :any = removeItemAtIndex(cartItems, index);
+  //     setCartItems(newList)
+  //   }
+  // }
   function removeItemAtIndex(arr:any, index:any){
     return [...arr.slice(0, index), ...arr.slice(index + 1)];
   }
-  const totalPrice: any = () => {
-    let total = 0;
-    if (cartItems.length > 0) {
-      cartItems.forEach((item: any) => (total += item.existingPrice));
-      return total;
-    }
-  };
+  // const totalPrice: any = () => {
+  //   let total = 0;
+  //   if (cartItems.length > 0) {
+  //     cartItems.forEach((item: any) => (total += item.existingPrice));
+  //     return total;
+  //   }
+  // };
   return (
     <Layout footer={footer}>
-      {cartItems.length <= 0 ? (
+      {/* {cartItems.length <= 0 ? (
         <h1 className="text-center">Your Cart is Empty!</h1>
       ) : (
         cartItems.map((item: any) => (
@@ -95,7 +94,7 @@ export default function Cart({footer}:any) {
           Checkout
           <div>Total: {totalPrice()}$</div>
         </button>
-      )}
+      )} */}
     </Layout>
   );
 }
