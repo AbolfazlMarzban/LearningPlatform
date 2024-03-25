@@ -38,10 +38,10 @@ function Index({ footer, posts }: any) {
       </Head>
       <div className="w-full">
         {posts.length > 0 && (
-          <div className="h-screen flex gap-2 flex-wrap justify-center items-center mb-5">
+          <div className="flex gap-2 flex-wrap justify-center items-center mb-5">
             {posts.map((post: any, i: any) => (
               <div
-                className="max-w-md rounded-xl shadow-xl bg-gray-300 bg-opacity-50 p-1"
+                className="max-w-xs rounded-xl shadow-xl bg-gray-300 bg-opacity-50 p-1"
                 key={i}
               >
                 <a target="_blank" href={`/blog/${post.title}`}>
@@ -56,7 +56,7 @@ function Index({ footer, posts }: any) {
                   />
 
                   <div className="p-5">
-                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-black dark:text-white">
+                    <h5 className="mb-2 text-lg font-bold tracking-tight text-black dark:text-white">
                       {post.title}
                     </h5>
                     <p className="mb-3 font-normal text-black dark:text-gray-400">
