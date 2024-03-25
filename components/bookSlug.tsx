@@ -1,6 +1,8 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { UseDispatch, useDispatch } from "react-redux";
+import { addToCart } from "@/context/slice";
 
 export default function BookSlug({
   _id,
@@ -13,6 +15,8 @@ export default function BookSlug({
   const [description, setDescription] = useState("");
   const [address, setAddress] = useState("");
   const [price, setPrice] = useState(0);
+
+  const dispatch = useDispatch();
   useEffect(() => {
     setName(existingName);
     setDescription(existingDescription);
@@ -39,7 +43,7 @@ export default function BookSlug({
             />
             <div className="bg-gray-300 my-2 p-3 rounded-xl text-black flex flex-row justify-between items-center">
               <span className="font-bold">{price} $</span>
-              <button className="border rounded-xl p-2 flex flex-row hover:bg-white">
+              <button className="border rounded-xl p-2 flex flex-row hover:bg-white" onClick={()=>dispatch(addToCart({_id, name, description, address, price}))}>
                 Add To Cart
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

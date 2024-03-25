@@ -1,5 +1,7 @@
 import Layout from "@/components/layout";
+import { removeFromCart } from "@/context/slice";
 import Image from "next/image";
+import { useDispatch, useSelector } from "react-redux";
 
 
 export async function getStaticProps() {
@@ -14,19 +16,18 @@ export async function getStaticProps() {
   };
 }
 export default function Cart({footer}:any) {
-  function removeItemAtIndex(arr:any, index:any){
-    return [...arr.slice(0, index), ...arr.slice(index + 1)];
-  }
-  // const totalPrice: any = () => {
-  //   let total = 0;
-  //   if (cartItems.length > 0) {
-  //     cartItems.forEach((item: any) => (total += item.existingPrice));
-  //     return total;
-  //   }
-  // };
+const cartItems = useSelector((state:any)=> state.cart)
+const dispatch = useDispatch()
+  const totalPrice: any = () => {
+    let total = 0;
+    if (cartItems.length > 0) {
+      cartItems.forEach((item: any) => (total += item.price));
+      return total;
+    }
+  };
   return (
     <Layout footer={footer}>
-      {/* {cartItems.length <= 0 ? (
+      {cartItems.length <= 0 ? (
         <h1 className="text-center">Your Cart is Empty!</h1>
       ) : (
         cartItems.map((item: any) => (
@@ -40,23 +41,23 @@ export default function Cart({footer}:any) {
                 height={0}
                 sizes="100vw"
                 className="object-cover rounded-l-lg  "
-                src={item.existingAddress}
+                src={item.address}
                 style={{ width: "100%", height: "100%" }}
                 alt=""
               />
             </div>
             <div className="basis-3/6 flex flex-col justify-between p-4 leading-normal">
               <h5 className="mb-2 text-2xl font-bold tracking-tight text-black dark:text-white">
-                {item.existingName}
+                {item.name}
               </h5>
               <p className="mb-3 font-normal text-white dark:text-gray-400">
-                {item.existingPrice} $
+                {item.price} $
               </p>
             </div>
             <div className="basis-1/6">
               <button
                 className="border rounded-xl p-2 text-white flex flex-row hover:bg-white hover:text-black"
-                onClick={() => removeFromCart(item._id)}
+                onClick={() => dispatch(removeFromCart(item._id))}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +86,7 @@ export default function Cart({footer}:any) {
           Checkout
           <div>Total: {totalPrice()}$</div>
         </button>
-      )} */}
+      )}
     </Layout>
   );
 }
