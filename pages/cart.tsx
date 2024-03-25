@@ -1,6 +1,5 @@
 import Layout from "@/components/layout";
 import Image from "next/image";
-// import { useRecoilState } from "recoil";
 
 
 export async function getStaticProps() {
@@ -15,14 +14,6 @@ export async function getStaticProps() {
   };
 }
 export default function Cart({footer}:any) {
-  // const [cartItems, setCartItems] = useRecoilState(cartState);
-  // function removeFromCart(id: any) {
-  //   const index = cartItems.findIndex((item: any) => item._id == id);
-  //   if(index > -1){
-  //     const newList :any = removeItemAtIndex(cartItems, index);
-  //     setCartItems(newList)
-  //   }
-  // }
   function removeItemAtIndex(arr:any, index:any){
     return [...arr.slice(0, index), ...arr.slice(index + 1)];
   }

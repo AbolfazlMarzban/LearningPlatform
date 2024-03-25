@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { useRecoilState } from "recoil"
 
 export default function CourseSlug({
   _id,
@@ -20,14 +19,6 @@ export default function CourseSlug({
     setPrice(existingPrice);
   }, [_id]);
 
-
-  // const [cartItems, setCartItems] = useRecoilState(cartState)
-
-  // const addToCart = ()=>{
-  //   if(cartItems.findIndex((item: any) => item._id == _id) == -1){
-  //     setCartItems((prevState) : any => [...prevState, {_id, existingName, existingDescription, existingAddress, existingPrice}])
-  //   } 
-  // }
 
   if(_id){
       return (
