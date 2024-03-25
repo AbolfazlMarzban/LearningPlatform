@@ -1,7 +1,6 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { useRecoilState } from "recoil"
 
 export default function BookSlug({
   _id,
@@ -20,18 +19,10 @@ export default function BookSlug({
     setAddress(existingAddress);
     setPrice(existingPrice);
   }, [_id]);
-
-  // const [cartItems, setCartItems] = useRecoilState(cartState)
-
-  // const addToCart = ()=>{
-  //   if(cartItems.findIndex((item: any) => item._id == _id) == -1){
-  //     setCartItems((prevState) : any => [...prevState, {_id, existingName, existingDescription, existingAddress, existingPrice}])
-  //   } 
-  // }
   if(_id){
     return (
       <div className="flex flex-row justify-center">
-        <div className="bg-transparent flex flex-row p-4 rounded-xl w-9/12 shadow-xl items-center">
+        <div className="bg-gray-300 bg-opacity-50 p-1 flex flex-row p-4 rounded-xl w-9/12 shadow-xl items-center">
           <div className="basis-1/2 p-2">
             <h1 className="font-bold text-2xl">{name}</h1>
             <p>{description}</p>
